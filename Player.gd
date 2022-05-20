@@ -21,9 +21,10 @@ func get_input():
 	if Input.is_action_pressed("move_down"):
 		move_dir.y += 1
 	
-	#pick u a weapon
-	if Input.is_action_pressed("pick_up"):
+	#pick up a weapon
+	if Input.is_action_just_pressed("pick_up"):
 		for body in $Area2D.get_overlapping_bodies():
+			print("pede")
 			if body.is_in_group("Weapons"):
 				body.queue_free()
 
