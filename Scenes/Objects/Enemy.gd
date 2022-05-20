@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 var velocity = Vector2.ZERO
 var speed = 200
+var health = 100
 
 func _ready():
 	pass 
@@ -12,3 +13,8 @@ func _physics_process(delta):
 	if player != null:
 		velocity = position.direction_to(player.position) * speed
 	velocity = move_and_slide(velocity)
+	
+	
+	
+	if health <= 0:
+		queue_free()
