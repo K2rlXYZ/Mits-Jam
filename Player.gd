@@ -31,11 +31,22 @@ func get_input():
 				weapon = body
 				if weapon:
 					weapon.position = Vector2.ZERO
+					
 	if Input.is_action_just_pressed("drop") and has_weapon == true:
 		reparent(weapon, self.get_parent())
 		weapon.position = position
 		has_weapon = false
+		
+	if Input.is_action_just_pressed("attack") and has_weapon:
+		for enemy in get_tree().get_nodes_in_group("Enemies"):
+			var dist = enemy.get_position().distance_to(get_position())
+			if dist < 100:
+				enemy.health-=get_weapon().damage
 			
+func get_weapon():
+	for child in get_children():
+		if child.is_in_group("Weapons"):
+			return child
 
 func _physics_process(delta):
 	get_input()
