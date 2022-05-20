@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/player.png-5e42ab849d862172be00e6b72c9838e5.stex"
+path="res://.import/tiled_button.png-f1e2403613d15df453fb9639fc354f31.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/player.png"
-dest_files=[ "res://.import/player.png-5e42ab849d862172be00e6b72c9838e5.stex" ]
+source_file="res://Assets/UI/tiled_button.png"
+dest_files=[ "res://.import/tiled_button.png-f1e2403613d15df453fb9639fc354f31.stex" ]
 
 [params]
 
