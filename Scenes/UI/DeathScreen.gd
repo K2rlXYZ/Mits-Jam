@@ -10,6 +10,7 @@ func _on_Retry_pressed():
 
 
 func _on_MainMenu_pressed():
+	SceneHandler.current_level_name = null
 	SceneHandler.load_main_menu()
 	SceneHandler.current_level.queue_free()
 	get_parent().queue_free()
