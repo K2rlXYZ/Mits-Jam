@@ -7,6 +7,10 @@ var current_level = null
 var current_level_name = null
 var pause_screen_loaded = false
 var pause_screen
+var last_loaded
+
+func _ready():
+	pause_mode = 2
 
 
 func load_level(lvl):
@@ -26,10 +30,16 @@ func level_complete():
 		
 func load_main_menu():
 	var main_menu = load("res://Scenes/UI/MainMenu.tscn").instance()
+	last_loaded = "main_menu"
+	get_tree().root.add_child(main_menu)
+	
+func load_settings_screen():
+	var main_menu = load("res://Scenes/UI/Settings.tscn").instance()
 	get_tree().root.add_child(main_menu)
 		
 func load_death_screen():
 	var death_screen = load("res://Scenes/UI/DeathScreen.tscn").instance()
+	last_loaded = "death_screen"
 	get_tree().get_root().add_child(death_screen)
 	
 func load_pause_screen():
@@ -39,6 +49,7 @@ func load_pause_screen():
 		get_tree().paused = false
 	else:
 		pause_screen = load("res://Scenes/UI/PauseScreen.tscn").instance()
+		last_loaded = "pause_screen"
 		get_tree().root.add_child(pause_screen)
 		pause_screen_loaded = true
 		get_tree().paused = true

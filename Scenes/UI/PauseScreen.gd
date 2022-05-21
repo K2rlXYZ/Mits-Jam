@@ -24,14 +24,18 @@ func _input(event):
 func _on_Main_Menu_pressed():
 	SceneHandler.current_level.queue_free()
 	SceneHandler.load_main_menu()
-	queue_free()
 	get_tree().paused = false
+	SceneHandler.pause_screen_loaded = false
+	queue_free()
 
 
 func _on_Settings_pressed():
-	get_tree().paused = false
+	SceneHandler.load_settings_screen()
+	SceneHandler.pause_screen_loaded = false
+	queue_free()
 
 
 func _on_ResumeButton_pressed():
-	queue_free()
 	get_tree().paused = false
+	SceneHandler.pause_screen_loaded = false
+	queue_free()

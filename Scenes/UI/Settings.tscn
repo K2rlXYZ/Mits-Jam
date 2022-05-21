@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Buttons/hover.tres" type="StyleBox" id=1]
+[ext_resource path="res://Resources/Buttons/pressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://Resources/Buttons/normal.tres" type="StyleBox" id=3]
+[ext_resource path="res://Resources/Fonts/font52.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Scenes/UI/Settings.gd" type="Script" id=5]
+
+[node name="Settings" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="Settings" type="Control" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Master" type="Label" parent="Settings"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -536.0
+margin_top = 120.0
+margin_right = 544.0
+margin_bottom = 220.0
+custom_fonts/font = ExtResource( 4 )
+text = "Master"
+align = 1
+valign = 1
+
+[node name="MasterSlider" type="HSlider" parent="Settings/Master"]
+margin_right = 1080.0
+margin_bottom = 16.0
+
+[node name="Music" type="Label" parent="Settings"]
+margin_left = 104.0
+margin_top = 288.0
+margin_right = 1184.0
+margin_bottom = 388.0
+custom_fonts/font = ExtResource( 4 )
+text = "Music"
+align = 1
+valign = 1
+
+[node name="MusicSlider" type="HSlider" parent="Settings/Music"]
+margin_right = 1080.0
+margin_bottom = 16.0
+
+[node name="SoundFX" type="Label" parent="Settings"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -536.0
+margin_top = 88.0
+margin_right = 544.0
+margin_bottom = 188.0
+custom_fonts/font = ExtResource( 4 )
+text = "SoundFX
+"
+align = 1
+valign = 1
+
+[node name="SoundFXSlider" type="HSlider" parent="Settings/SoundFX"]
+margin_right = 1080.0
+margin_bottom = 16.0
+
+[node name="ColorRect" type="ColorRect" parent="Settings"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0.0784314 )
+
+[node name="BackButton" type="Button" parent="."]
+pause_mode = 2
+margin_left = 488.0
+margin_top = 544.0
+margin_right = 786.0
+margin_bottom = 625.0
+custom_fonts/font = ExtResource( 4 )
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 2 )
+custom_styles/normal = ExtResource( 3 )
+text = "Back"
+
+[connection signal="value_changed" from="Settings/Master/MasterSlider" to="." method="_on_MasterSlider_value_changed"]
+[connection signal="value_changed" from="Settings/Music/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="Settings/SoundFX/SoundFXSlider" to="." method="_on_SoundFXSlider_value_changed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
