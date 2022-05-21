@@ -8,6 +8,7 @@ extends StaticBody2D
 export(Texture) var idle
 export(Texture) var picked_up
 var vec = Vector2.ZERO
+var can_shoot
 
 var furb_preload = preload("res://Scenes/Weapons/furball.tscn")
 
@@ -27,14 +28,17 @@ func _physics_process(delta):
 	
 	
 func attack():
-	var furb = furb_preload.instance()
-	get_tree().get_root().get_node("Level1").add_child(furb)
-	vec = (get_global_mouse_position()-global_position).normalized()
-	var pos = global_position
-	pos.x += 80*vec.x
-	pos.y += 80*vec.y
-	furb.position = pos
-	furb.shoot(get_global_mouse_position())
+	if can_shoot:
+		var furb = furb_preload.instance()
+		get_tree().get_root().get_node("Level1").add_child(furb)
+		vec = (get_global_mouse_position()-global_position).normalized()
+		var pos = global_position
+		pos.x += 80*vec.x
+		pos.y += 80*vec.y
+		furb.position = pos
+		furb.shoot(get_global_mouse_position())
+		can_shoot = false
+		$Timer.start()
 
 func change_state():
 	if $Sprite.texture == idle:
@@ -44,4 +48,4 @@ func change_state():
 
 
 func _on_Timer_timeout():
-	pass # Replace with function body.
+	can_shoot = true
