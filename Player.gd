@@ -31,6 +31,8 @@ func get_input():
 				reparent(body, $Pivot/Attach)
 				has_weapon = true
 				weapon = body
+				if weapon.name == "Medpack_weapon":
+					weapon.give_health()
 				weapon.position = Vector2.ZERO
 				weapon.change_state()
 			

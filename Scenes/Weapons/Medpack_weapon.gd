@@ -26,10 +26,7 @@ var player_nearby
 var damage = 20
 
 func _physics_process(delta):
-	var parent = get_parent().get_parent()
-	if parent.name == "Player" and health_given == false:
-		parent.health += 20
-		health_given = true	
+	pass
 	
 func attack():
 	if can_shoot:
@@ -59,3 +56,8 @@ func change_state():
 
 func _on_Timer_timeout():
 	can_shoot = true
+	
+func give_health():
+	var player = get_tree().get_root().get_node(Globals.level + "/Player")
+	player.health += 20
+	health_given = true	
