@@ -33,7 +33,7 @@ func change_state():
 		$Sprite.texture = picked_up
 		if not loaded:
 			effect = load("res://Assets/Particles/Firehydrant_effect.tscn").instance()
-			get_tree().get_root().get_node(Globals.level).add_child(effect)
+			SceneHandler.current_level.add_child(effect)
 			pos.x += 48
 			effect.position = pos
 			effect.emitting =  true

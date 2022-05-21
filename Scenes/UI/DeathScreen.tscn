@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Resources/Fonts/font52.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Resources/Buttons/normal.tres" type="StyleBox" id=2]
+[ext_resource path="res://Resources/Buttons/hover.tres" type="StyleBox" id=3]
+[ext_resource path="res://Resources/Buttons/pressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://Scenes/UI/DeathScreen.gd" type="Script" id=5]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="DeathScreen" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="DeathScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.27451 )
+
+[node name="Retry" type="Button" parent="DeathScreen"]
+margin_left = 768.0
+margin_top = 561.0
+margin_right = 1061.0
+margin_bottom = 642.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 2 )
+text = "RETRY"
+
+[node name="MainMenu" type="Button" parent="DeathScreen"]
+margin_left = 169.0
+margin_top = 561.0
+margin_right = 543.0
+margin_bottom = 642.0
+custom_fonts/font = ExtResource( 1 )
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/normal = ExtResource( 2 )
+text = "MAIN MENU"
+
+[node name="Label" type="Label" parent="DeathScreen"]
+margin_left = 416.0
+margin_top = 385.0
+margin_right = 555.0
+margin_bottom = 409.0
+rect_scale = Vector2( 3, 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "You died!"
+
+[connection signal="pressed" from="DeathScreen/Retry" to="DeathScreen" method="_on_Retry_pressed"]
+[connection signal="pressed" from="DeathScreen/MainMenu" to="DeathScreen" method="_on_MainMenu_pressed"]
