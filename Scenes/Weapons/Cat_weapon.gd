@@ -9,6 +9,7 @@ export(Texture) var idle
 export(Texture) var picked_up
 var vec = Vector2.ZERO
 var can_shoot
+var ammo = 10
 
 var furb_preload = preload("res://Scenes/Weapons/furball.tscn")
 
@@ -39,7 +40,14 @@ func attack():
 		furb.shoot(get_global_mouse_position())
 		can_shoot = false
 		$Timer.start()
-
+		ammo -= 1
+		if ammo == 0:
+			get_parent().get_parent().has_weapon = false
+			get_parent().get_parent().weapon = null
+			get_parent().remove_child(self)
+			queue_free()
+			
+			
 func change_state():
 	if $Sprite.texture == idle:
 		$Sprite.texture = picked_up
