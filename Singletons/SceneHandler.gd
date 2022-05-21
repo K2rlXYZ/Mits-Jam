@@ -29,7 +29,8 @@ func load_main_menu():
 	get_tree().root.add_child(main_menu)
 		
 func load_death_screen():
-	pass
+	var death_screen = load("res://Scenes/UI/DeathScreen.tscn").instance()
+	get_tree().get_root().add_child(death_screen)
 	
 func load_pause_screen():
 	if (pause_screen_loaded):
@@ -39,4 +40,8 @@ func load_pause_screen():
 		pause_screen = load("res://Scenes/UI/PauseScreen.tscn").instance()
 		get_tree().root.add_child(pause_screen)
 		pause_screen_loaded = true
-	
+
+
+func restart_level():
+	current_level.queue_free()
+	load_level(current_level_name)
