@@ -12,7 +12,7 @@ radius = 30.0167
 radius = 80.0
 
 [node name="Enemy" type="KinematicBody2D" groups=["Enemies"]]
-collision_layer = 2
+collision_layer = 64
 collision_mask = 2
 script = ExtResource( 2 )
 
@@ -30,6 +30,13 @@ shape = SubResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="damageArea" type="CollisionShape2D" parent="Area2D2"]
 shape = SubResource( 3 )
+
+[node name="damageTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="damageTimer" to="." method="_on_damageTimer_timeout"]
