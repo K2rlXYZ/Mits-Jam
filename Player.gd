@@ -60,10 +60,8 @@ func get_input():
 	#deal damage
 	if Input.is_action_just_pressed("attack") and has_weapon and !get_node("AnimationPlayer").is_playing() and weapon.can_shoot == true:
 		get_node("AnimationPlayer").play("swing")
-		yield(get_tree().create_timer(0.3), "timeout")
-		weapon.attack()
-		get_node("Camera2D").add_trauma(0.4)
-	
+		# animationis kutsub attack()
+		
 	
 func get_weapon():
 	for child in get_children():
@@ -89,3 +87,7 @@ func reparent(child: Node, new_parent: Node):
 	var old_parent = child.get_parent()
 	old_parent.remove_child(child)
 	new_parent.add_child(child)
+
+func attack():
+	weapon.attack()
+	get_node("Camera2D").add_trauma(0.4)
