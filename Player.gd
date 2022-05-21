@@ -47,6 +47,8 @@ func get_input():
 	if Input.is_action_just_pressed("attack") and has_weapon and !get_node("AnimationPlayer").is_playing():
 		get_node("AnimationPlayer").play("swing")
 		weapon.attack()
+		get_node("Camera2D").add_trauma(0.2)
+		get_node("Camera2D").shake()
 	
 	
 func get_weapon():
