@@ -25,7 +25,6 @@ func level_complete():
 		load_level(levels[lvl+1])
 		
 func load_main_menu():
-	get_tree().root.remove_child(SceneHandler.current_level)
 	var main_menu = load("res://Scenes/UI/MainMenu.tscn").instance()
 	get_tree().root.add_child(main_menu)
 		
