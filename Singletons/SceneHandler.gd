@@ -21,3 +21,6 @@ func level_complete():
 	var lvl = levels.find(current_level_name)
 	if lvl < levels.size():
 		load_level(levels[lvl+1])
+		
+func load_death_screen():
+	pass

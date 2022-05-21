@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Resources/Tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Player.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Scenes/Weapons/Firehydrant_weapon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Weapons/Blackcat_weapon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Weapons/Grass_weapon.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Weapons/Shovel_weapon.tscn" type="PackedScene" id=10]
 
 [node name="Level1" type="Node2D"]
 
@@ -48,9 +47,6 @@ position = Vector2( -175, -81 )
 
 [node name="Stop_weapon2" parent="Weapons" instance=ExtResource( 5 )]
 position = Vector2( 1033, -596 )
-
-[node name="Shovel_weapon" parent="Weapons" groups=["Weapons"] instance=ExtResource( 10 )]
-position = Vector2( 164, 187 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
