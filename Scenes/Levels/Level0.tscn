@@ -1,10 +1,179 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Resources/Tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Fonts/orange kid.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/Levels/Level0.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Weapons/Stop_weapon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Objects/Enemy.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Enemies/gangster.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=5]
+resource_name = "e_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Press LEFT MOUSE BUTTON near enemy to kill them" ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "e_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Press LEFT MOUSE BUTTON near enemy to kill them" ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "kt_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "kt_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "rs_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Move to road and press E to pick up roadsign" ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "rs_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Move to road and press E to pick up roadsign" ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+extra_spacing_char = 3
+font_data = ExtResource( 3 )
+
+[sub_resource type="CircleShape2D" id=13]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 30.0167
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 42.0119
+
+[sub_resource type="Gradient" id=14]
+offsets = PoolRealArray( 0.0190476, 1 )
+
+[sub_resource type="GradientTexture" id=15]
+gradient = SubResource( 14 )
+width = 800
+
+[sub_resource type="Gradient" id=16]
+colors = PoolColorArray( 0.384314, 0.0901961, 0.0901961, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 16 )
 
 [node name="Level1" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 3, 3 )
@@ -25,3 +194,92 @@ position = Vector2( 760, 368 )
 
 [node name="Stop_weapon" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1384, -224 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/e_in = SubResource( 5 )
+anims/e_out = SubResource( 12 )
+anims/kt_in = SubResource( 7 )
+anims/kt_out = SubResource( 10 )
+anims/rs_in = SubResource( 9 )
+anims/rs_out = SubResource( 11 )
+
+[node name="MessageScreen" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="MessageScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MessageScreen/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageScreen/Control/MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1230.0
+margin_bottom = 670.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MessageScreen/Control/MarginContainer/VBoxContainer"]
+margin_top = 285.0
+margin_right = 1180.0
+margin_bottom = 334.0
+alignment = 1
+
+[node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 181.0
+margin_right = 999.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 1 )
+text = "Press LEFT MOUSE BUTTON near enemy to kill them"
+
+[node name="Enemy" type="KinematicBody2D" parent="." groups=["Enemies"]]
+position = Vector2( 2616, -968 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="Enemy"]
+scale = Vector2( 3, 3 )
+texture = ExtResource( 7 )
+
+[node name="SeekArea" type="Area2D" parent="Enemy"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="seekCollision" type="CollisionShape2D" parent="Enemy/SeekArea"]
+scale = Vector2( 100, 100 )
+shape = SubResource( 13 )
+
+[node name="collisionArea" type="CollisionShape2D" parent="Enemy"]
+shape = SubResource( 2 )
+
+[node name="damageArea" type="Area2D" parent="Enemy"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="damageCollision" type="CollisionShape2D" parent="Enemy/damageArea"]
+shape = SubResource( 3 )
+
+[node name="damageTimer" type="Timer" parent="Enemy"]
+autostart = true
+
+[node name="Health" type="TextureProgress" parent="Enemy"]
+margin_left = -75.0
+margin_top = -70.0
+margin_right = 75.0
+margin_bottom = -60.0
+value = 10.0
+texture_under = SubResource( 15 )
+texture_progress = SubResource( 8 )
+nine_patch_stretch = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="Enemy/SeekArea" to="Enemy" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Enemy/SeekArea" to="Enemy" method="_on_Area2D_body_exited"]
+[connection signal="timeout" from="Enemy/damageTimer" to="Enemy" method="_on_damageTimer_timeout"]

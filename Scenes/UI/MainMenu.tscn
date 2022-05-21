@@ -67,7 +67,7 @@ custom_styles/pressed = ExtResource( 1 )
 custom_styles/normal = ExtResource( 2 )
 text = "Level 1"
 
-[node name="Level5" type="Button" parent="M/VB"]
+[node name="Level0" type="Button" parent="M/VB"]
 margin_top = 404.0
 margin_right = 298.0
 margin_bottom = 485.0

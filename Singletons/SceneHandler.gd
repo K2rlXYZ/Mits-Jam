@@ -2,7 +2,7 @@ extends Node
 
 
 
-var levels = ["Level1", "Level2", "Level3", "Level4"]
+var levels = ["Level1", "Level2", "Level3", "Level4", "Level0"]
 var current_level = null
 var current_level_name = null
 var pause_screen_loaded = false
@@ -10,7 +10,7 @@ var pause_screen
 var last_loaded = "main_menu"
 
 func _ready():
-	pause_mode = 2
+	pause_mode = Node.PAUSE_MODE_PROCESS
 
 
 func _physics_process(delta):
