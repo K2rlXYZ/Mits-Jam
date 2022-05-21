@@ -44,10 +44,10 @@ func get_input():
 		weapon = null
 	
 	#deal damage
-	if Input.is_action_just_pressed("attack") and has_weapon and !get_node("AnimationPlayer").is_playing():
+	if Input.is_action_just_pressed("attack") and has_weapon and !get_node("AnimationPlayer").is_playing() and weapon.can_shoot == true:
 		get_node("AnimationPlayer").play("swing")
 		weapon.attack()
-		get_node("Camera2D").add_trauma(0.2)
+		get_node("Camera2D").add_trauma(0.4)
 		get_node("Camera2D").shake()
 	
 	

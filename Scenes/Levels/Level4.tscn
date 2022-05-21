@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Resources/Tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Enemy.tscn" type="PackedScene" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Scenes/Weapons/Blackcat_weapon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Weapons/Medpack_weapon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Weapons/Trashcan_weapon.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Levels/Camera2D.gd" type="Script" id=10]
 
 [node name="Level4" type="Node2D"]
 
@@ -78,7 +77,3 @@ position = Vector2( 3218, -80 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -895, 649 )
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
-script = ExtResource( 10 )

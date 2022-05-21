@@ -45,8 +45,8 @@ func attack():
 		$Timer.start()
 		ammo -= 1
 		if ammo == 0:
-			get_parent().get_parent().has_weapon = false
-			get_parent().get_parent().weapon = null
+			get_tree().get_root().get_node(Globals.level).get_node_or_null("Player").has_weapon = false
+			get_tree().get_root().get_node(Globals.level).get_node_or_null("Player").weapon = null
 			get_parent().remove_child(self)
 			queue_free()
 			
