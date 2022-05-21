@@ -32,7 +32,7 @@ func _physics_process(delta):
 		blood.rotation = global_position.angle_to_point(get_tree().get_root().get_node(Globals.level).get_node_or_null("Player").global_position)
 		queue_free()
 	
-	#$Health.value = health * 100/maxhealth
+	$Health.value = health * 100/maxhealth
 
 
 
