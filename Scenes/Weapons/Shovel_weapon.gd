@@ -14,7 +14,7 @@ var damage = 30
 var drag = 0.1
 var flying = false
 var can_shoot = true
-var ammo = 15
+var ammo = 3
 
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +28,11 @@ func _physics_process(delta):
 	if flying:
 		fly_speed -= drag
 		position += dir * fly_speed
+	if ammo == 0 and fly_speed == 0:
+			get_tree().get_root().get_node(Globals.level + "/Player").has_weapon = false
+			get_tree().get_root().get_node(Globals.level + "/Player").weapon = null
+			get_parent().remove_child(self)
+			queue_free()
 
 func attack():
 	flying = true
@@ -38,6 +43,9 @@ func attack():
 	reparent(self, SceneHandler.current_level)
 	position = pos
 	dir = (get_global_mouse_position() - position).normalized()
+	ammo -= 1
+	print(ammo)
+	
 	
 func change_state():
 	if $Sprite.texture == idle:
@@ -51,6 +59,7 @@ func _on_Area2D_body_entered(body):
 		body.health -= damage
 		fly_speed = 0
 		flying = false
+		
 		
 func reparent(child: Node, new_parent: Node):
 	var old_parent = child.get_parent()
