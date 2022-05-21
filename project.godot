@@ -14,6 +14,10 @@ config/name="Mits Jam"
 run/main_scene="res://Scenes/Levels/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Singletons/Globals.gd"
+
 [display]
 
 window/size/width=1280

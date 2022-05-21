@@ -22,7 +22,7 @@ func change_state():
 	if $Sprite.texture == idle:
 		$Sprite.texture = picked_up
 		effect = load("res://Assets/Particles/Firehydrant_effect.tscn").instance()
-		get_tree().get_root().get_node("Level1").add_child(effect)
+		get_tree().get_root().get_node(Globals.level).add_child(effect)
 		pos.x += 48
 		effect.position = pos
 		effect.emitting =  true
