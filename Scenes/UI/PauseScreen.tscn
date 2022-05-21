@@ -7,11 +7,12 @@
 [ext_resource path="res://Scenes/UI/PauseScreen.gd" type="Script" id=5]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource( 5 )
 
 [node name="PauseScreen" type="Control" parent="."]
+pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="PauseScreen"]
 anchor_right = 1.0
@@ -82,6 +83,6 @@ custom_styles/pressed = ExtResource( 3 )
 custom_styles/normal = ExtResource( 1 )
 text = "Main Menu"
 
-[connection signal="pressed" from="PauseScreen/MarginContainer/VBoxContainer/HBoxContainer/ResumeButton" to="PauseScreen" method="_on_ResumeButton_pressed"]
-[connection signal="pressed" from="PauseScreen/MarginContainer/VBoxContainer/HBoxContainer2/Settings" to="PauseScreen" method="_on_Settings_pressed"]
-[connection signal="pressed" from="PauseScreen/MarginContainer/VBoxContainer/HBoxContainer3/Main_Menu" to="PauseScreen" method="_on_Main_Menu_pressed"]
+[connection signal="pressed" from="PauseScreen/MarginContainer/VBoxContainer/HBoxContainer/ResumeButton" to="." method="_on_ResumeButton_pressed"]
+[connection signal="pressed" from="PauseScreen/MarginContainer/VBoxContainer/HBoxContainer2/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="PauseScreen/MarginContainer/VBoxContainer/HBoxContainer3/Main_Menu" to="." method="_on_Main_Menu_pressed"]

@@ -35,8 +35,10 @@ func load_pause_screen():
 	if (pause_screen_loaded):
 		pause_screen.get_parent().remove_child(pause_screen)
 		pause_screen_loaded = false
+		get_tree().paused = false
 	else:
 		pause_screen = load("res://Scenes/UI/PauseScreen.tscn").instance()
 		get_tree().root.add_child(pause_screen)
 		pause_screen_loaded = true
+		get_tree().paused = true
 	
