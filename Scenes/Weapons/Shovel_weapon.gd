@@ -13,7 +13,7 @@ var fly_speed = 0
 var damage = 30
 var drag = 0.1
 var flying = false
-var can_shoot
+var can_shoot = true
 var ammo = 15
 
 
@@ -22,6 +22,9 @@ func _ready():
 	pass # Replace with function body.
 	
 func _physics_process(delta):
+	if fly_speed < 2:
+		fly_speed = 0
+		flying = false
 	if flying:
 		fly_speed -= drag
 		position += dir * fly_speed
@@ -30,14 +33,9 @@ func attack():
 	flying = true
 	fly_speed = 10
 	var pos = global_position
-	get_tree().get_root().get_node(Globals.level).add_child(self)
 	get_tree().get_root().get_node(Globals.level + "/Player").has_weapon = false
 	get_tree().get_root().get_node(Globals.level + "/Player").weapon = null
-	get_tree().get_root().get_node(Globals.level + "/Player").remove_child(self)
-	position = pos
-	vec = (get_global_mouse_position()-global_position).normalized()
-	pos.x += 80*vec.x
-	pos.y += 80*vec.y
+	reparent(self, SceneHandler.current_level)
 	position = pos
 	dir = (get_global_mouse_position() - position).normalized()
 	
@@ -53,3 +51,8 @@ func _on_Area2D_body_entered(body):
 		body.health -= damage
 		fly_speed = 0
 		flying = false
+		
+func reparent(child: Node, new_parent: Node):
+	var old_parent = child.get_parent()
+	old_parent.remove_child(child)
+	new_parent.add_child(child)
