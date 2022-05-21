@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Resources/Buttons/pressed.tres" type="StyleBox" id=1]
 [ext_resource path="res://Resources/Buttons/normal.tres" type="StyleBox" id=2]
@@ -8,6 +8,14 @@
 [ext_resource path="res://Assets/Fonts/orange kid.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://Scenes/UI/MainMenuRedo.gd" type="Script" id=7]
 
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.806748, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.494118, 0.25098, 0, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+width = 100
+
 [sub_resource type="DynamicFont" id=1]
 size = 40
 extra_spacing_char = 3
@@ -16,10 +24,11 @@ font_data = ExtResource( 6 )
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 7 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.207843, 0.207843, 0.207843, 1 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1144, 1120 )
+rotation = -0.785398
+scale = Vector2( 19.4696, 1600.7 )
+texture = SubResource( 3 )
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0
