@@ -18,8 +18,8 @@ func attack():
 			enemy.health-=damage
 			ammo -= 1
 			if ammo == 0:
-				get_parent().get_parent().has_weapon = false
-				get_parent().get_parent().weapon = null
+				get_tree().get_root().get_node(Globals.level + "/Player").has_weapon = false
+				get_tree().get_root().get_node(Globals.level + "/Player").weapon = null
 				get_parent().remove_child(self)
 				queue_free()
 
