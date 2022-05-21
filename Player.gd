@@ -60,6 +60,7 @@ func get_input():
 	#deal damage
 	if Input.is_action_just_pressed("attack") and has_weapon and !get_node("AnimationPlayer").is_playing() and weapon.can_shoot == true:
 		get_node("AnimationPlayer").play("swing")
+		yield(get_tree().create_timer(0.3), "timeout")
 		weapon.attack()
 		get_node("Camera2D").add_trauma(0.4)
 	
