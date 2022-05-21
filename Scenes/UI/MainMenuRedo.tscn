@@ -9,8 +9,8 @@
 [ext_resource path="res://Scenes/UI/MainMenuRedo.gd" type="Script" id=7]
 
 [sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0, 0.806748, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 0.494118, 0.25098, 0, 1, 1, 1, 1, 1 )
+offsets = PoolRealArray( 0, 0.613497, 0.923313 )
+colors = PoolColorArray( 0.321569, 0.321569, 0.321569, 1, 0.270588, 0.384314, 0.262745, 1, 0.992157, 0.721569, 0.0745098, 1 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )

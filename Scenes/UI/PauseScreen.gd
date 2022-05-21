@@ -22,6 +22,7 @@ func _input(event):
 
 
 func _on_Main_Menu_pressed():
+	SceneHandler.current_level_name = null
 	SceneHandler.current_level.queue_free()
 	SceneHandler.load_main_menu()
 	get_tree().paused = false
