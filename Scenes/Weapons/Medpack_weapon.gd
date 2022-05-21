@@ -13,6 +13,7 @@ var ammo = 10
 var health_given = false
 
 var furb_preload = preload("res://Scenes/Weapons/Ketamine.tscn")
+var animation = "shoot"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

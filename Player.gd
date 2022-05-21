@@ -1,3 +1,4 @@
+
 extends KinematicBody2D
 
 
@@ -32,7 +33,8 @@ func get_input():
 					reparent(body, $Pivot/Attach)
 					has_weapon = true
 					weapon = body
-					if weapon.name == "Medpack_weapon":
+					print("uus relv")
+					if weapon.is_in_group("Heals"):
 						weapon.give_health()
 					weapon.position = Vector2.ZERO
 					weapon.change_state()
@@ -46,25 +48,29 @@ func get_input():
 			var last_weapon = weapon
 			weapon = null
 			
+			
 			# replace weapon?
 			for body in $Area2D.get_overlapping_bodies():
 				if body.is_in_group("Weapons") and has_weapon == false and body != last_weapon:
 					reparent(body, $Pivot/Attach)
 					has_weapon = true
 					weapon = body
+					print("teine relv")
+					if body.animation == "swing":
+						self
 					if weapon.is_in_group("Heals"):
 						weapon.give_health()
+						
 					weapon.position = Vector2.ZERO
 					weapon.change_state()
 	
 	#deal damage
 	if Input.is_action_just_pressed("attack") and has_weapon and !get_node("AnimationPlayer").is_playing() and weapon.can_shoot == true:
-		get_node("AnimationPlayer").play("swing")
-		# animationis kutsub attack()
-		
+		get_node("AnimationPlayer").play(weapon.animation)
+		# animation kutsub funktsiooni attack()
+	
 	if Input.is_action_just_pressed("pause"):
 		SceneHandler.load_pause_screen()
-		
 	
 func get_weapon():
 	for child in get_children():
@@ -84,8 +90,6 @@ func _physics_process(delta):
 		camera.position = pos
 		queue_free()
 		SceneHandler.load_death_screen()
-		
-		
 	
 	
 	

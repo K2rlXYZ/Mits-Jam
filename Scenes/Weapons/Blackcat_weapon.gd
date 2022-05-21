@@ -10,8 +10,8 @@ export(Texture) var picked_up
 var vec = Vector2.ZERO
 var can_shoot
 var ammo = 10
-
 var furb_preload = preload("res://Scenes/Weapons/furball.tscn")
+var animation = "shoot"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -9,6 +9,7 @@ var effect
 var loaded = false
 var ammo = 10
 var can_shoot = true
+var animation = "swing"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
