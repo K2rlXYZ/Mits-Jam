@@ -22,8 +22,8 @@ func attack():
 			enemy.health-=damage
 			ammo -= 1
 			if ammo == 0:
-				get_tree().get_root().get_node(Globals.level + "/Player").has_weapon = false
-				get_tree().get_root().get_node(Globals.level + "/Player").weapon = null
+				SceneHandler.current_level.get_node("Player").has_weapon = false
+				SceneHandler.current_level.get_node("Player").weapon = null
 				get_parent().remove_child(self)
 				queue_free()
 

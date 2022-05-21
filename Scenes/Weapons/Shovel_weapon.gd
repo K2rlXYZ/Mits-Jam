@@ -29,8 +29,8 @@ func _physics_process(delta):
 		fly_speed -= drag
 		position += dir * fly_speed
 	if ammo == 0 and fly_speed == 0:
-			get_tree().get_root().get_node(Globals.level + "/Player").has_weapon = false
-			get_tree().get_root().get_node(Globals.level + "/Player").weapon = null
+			SceneHandler.current_level.get_node("Player").has_weapon = false
+			SceneHandler.current_level.get_node("Player").weapon = null
 			get_parent().remove_child(self)
 			queue_free()
 
@@ -38,8 +38,8 @@ func attack():
 	flying = true
 	fly_speed = 10
 	var pos = global_position
-	get_tree().get_root().get_node(Globals.level + "/Player").has_weapon = false
-	get_tree().get_root().get_node(Globals.level + "/Player").weapon = null
+	SceneHandler.current_level.get_node("Player").has_weapon = false
+	SceneHandler.current_level.get_node("Player").weapon = null
 	reparent(self, SceneHandler.current_level)
 	position = pos
 	dir = (get_global_mouse_position() - position).normalized()

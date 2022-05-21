@@ -31,7 +31,7 @@ func _physics_process(delta):
 func attack():
 	if can_shoot:
 		var furb = furb_preload.instance()
-		get_tree().get_root().get_node(Globals.level).add_child(furb)
+		SceneHandler.current_level.add_child(furb)
 		vec = (get_global_mouse_position()-global_position).normalized()
 		var pos = global_position
 		pos.x += 80*vec.x
@@ -42,8 +42,8 @@ func attack():
 		$Timer.start()
 		ammo -= 1
 		if ammo == 0:
-			get_tree().get_root().get_node(Globals.level + "/Player").has_weapon = false
-			get_tree().get_root().get_node(Globals.level + "/Player").weapon = null
+			SceneHandler.current_level.get_node("Player").has_weapon = false
+			SceneHandler.current_level.get_node("Player").weapon = null
 			get_parent().remove_child(self)
 			queue_free()
 

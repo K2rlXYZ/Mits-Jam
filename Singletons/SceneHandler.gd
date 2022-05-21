@@ -13,6 +13,25 @@ func _ready():
 	pause_mode = 2
 
 
+func _physics_process(delta):
+	match current_level_name:
+		"Level1":
+			all_enemies_dead(current_level)
+		"Level2":
+			# taxi level
+			pass
+		"Level3":
+			all_enemies_dead(current_level)
+		"Level4":
+			all_enemies_dead(current_level)
+
+func all_enemies_dead(level):
+	if level.get_node("Enemies").get_children().empty():
+		level_complete()
+
+
+
+
 func load_level(lvl):
 	# Load new level
 	Globals.level = lvl
