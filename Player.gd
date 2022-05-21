@@ -24,33 +24,44 @@ func get_input():
 	if Input.is_action_pressed("move_down"):
 		move_dir.y += 1
 	
-	#pick up a weapon
-	if Input.is_action_just_pressed("pick_up") and has_weapon == false:
-		for body in $Area2D.get_overlapping_bodies():
-			if body.is_in_group("Weapons") and has_weapon == false:
-				reparent(body, $Pivot/Attach)
-				has_weapon = true
-				weapon = body
-				if weapon.name == "Medpack_weapon":
-					weapon.give_health()
-				weapon.position = Vector2.ZERO
-				weapon.change_state()
+	if Input.is_action_just_pressed("pick_up"):
+		#pick up a weapon
+		if has_weapon == false:
+			for body in $Area2D.get_overlapping_bodies():
+				if body.is_in_group("Weapons") and has_weapon == false:
+					reparent(body, $Pivot/Attach)
+					has_weapon = true
+					weapon = body
+					if weapon.name == "Medpack_weapon":
+						weapon.give_health()
+					weapon.position = Vector2.ZERO
+					weapon.change_state()
+		else:
+			# drop weapon
+			reparent(weapon, self.get_parent().get_node("Weapons"))
+			weapon.global_position = global_position
+			weapon.change_state()
+			has_weapon = false
 			
-	
-	#drop weapon
-	if Input.is_action_just_pressed("drop") and has_weapon == true:
-		reparent(weapon, self.get_parent())
-		weapon.position = position
-		weapon.change_state()
-		has_weapon = false
-		weapon = null
+			var last_weapon = weapon
+			weapon = null
+			
+			# replace weapon?
+			for body in $Area2D.get_overlapping_bodies():
+				if body.is_in_group("Weapons") and has_weapon == false and body != last_weapon:
+					reparent(body, $Pivot/Attach)
+					has_weapon = true
+					weapon = body
+					if weapon.name == "Medpack_weapon":
+						weapon.give_health()
+					weapon.position = Vector2.ZERO
+					weapon.change_state()
 	
 	#deal damage
 	if Input.is_action_just_pressed("attack") and has_weapon and !get_node("AnimationPlayer").is_playing() and weapon.can_shoot == true:
 		get_node("AnimationPlayer").play("swing")
 		weapon.attack()
 		get_node("Camera2D").add_trauma(0.4)
-		get_node("Camera2D").shake()
 	
 	
 func get_weapon():

@@ -6,12 +6,14 @@ colors = PoolColorArray( 0.175491, 0.185994, 0.847656, 1, 0.222332, 0.557196, 0.
 
 [node name="Firehydrant_effect" type="CPUParticles2D"]
 scale = Vector2( 2, 2 )
-amount = 1000
+amount = 500
 spread = 180.0
 gravity = Vector2( 0, 0 )
-initial_velocity = 50.0
+initial_velocity = 70.0
+initial_velocity_random = 0.54
 damping = 30.0
-scale_amount = 2.0
+damping_random = 0.14
+scale_amount = 3.0
 scale_amount_random = 1.0
 color_ramp = SubResource( 1 )
 anim_speed = 1.0
