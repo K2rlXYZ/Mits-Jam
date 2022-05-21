@@ -7,7 +7,7 @@ var current_level = null
 var current_level_name = null
 var pause_screen_loaded = false
 var pause_screen
-var last_loaded
+var last_loaded = "main_menu"
 
 func _ready():
 	pause_mode = 2
@@ -28,14 +28,19 @@ func level_complete():
 	if lvl < levels.size():
 		load_level(levels[lvl+1])
 		
+func load_main_menu_old():
+	var main_menu_old = load("res://Scenes/UI/MainMenu.tscn").instance()
+	last_loaded = "main_menu_old"
+	get_tree().root.add_child(main_menu_old)
+	
 func load_main_menu():
-	var main_menu = load("res://Scenes/UI/MainMenu.tscn").instance()
 	last_loaded = "main_menu"
+	var main_menu = load("res://Scenes/UI/MainMenuRedo.tscn").instance()
 	get_tree().root.add_child(main_menu)
 	
 func load_settings_screen():
-	var main_menu = load("res://Scenes/UI/Settings.tscn").instance()
-	get_tree().root.add_child(main_menu)
+	var settings_screen = load("res://Scenes/UI/Settings.tscn").instance()
+	get_tree().root.add_child(settings_screen)
 		
 func load_death_screen():
 	var death_screen = load("res://Scenes/UI/DeathScreen.tscn").instance()
