@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Resources/Tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Scenes/Weapons/Blackcat_weapon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Weapons/Cat_weapon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Objects/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Weapons/Trashcan_weapon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Weapons/Pigeon_weapon.tscn" type="PackedScene" id=11]
 
 [node name="Level3" type="Node2D"]
 
@@ -49,6 +51,30 @@ position = Vector2( -1586, -2359 )
 
 [node name="Grass_weapon" parent="Weapons" instance=ExtResource( 4 )]
 position = Vector2( 161, -1445 )
+
+[node name="Pigeon_weapon" parent="Weapons" instance=ExtResource( 11 )]
+position = Vector2( 29, 1486 )
+
+[node name="Trashcan_weapon" parent="Weapons" instance=ExtResource( 10 )]
+position = Vector2( 1, 736 )
+
+[node name="Trashcan_weapon2" parent="Weapons" instance=ExtResource( 10 )]
+position = Vector2( -196, 2641 )
+
+[node name="Trashcan_weapon3" parent="Weapons" instance=ExtResource( 10 )]
+position = Vector2( 76, 3020 )
+
+[node name="Stop_weapon3" parent="Weapons" instance=ExtResource( 3 )]
+position = Vector2( 586, 2607 )
+
+[node name="Medpack_weapon3" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( 192, 2164 )
+
+[node name="Medpack_weapon4" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( -1100, 3019 )
+
+[node name="Medpack_weapon5" parent="Weapons" instance=ExtResource( 5 )]
+position = Vector2( -1603, 2636 )
 
 [node name="Enemies" type="Node2D" parent="."]
 
