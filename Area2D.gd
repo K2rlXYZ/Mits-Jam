@@ -17,9 +17,7 @@ func shoot(towards):
 	dir = (towards - position).normalized()
 	
 	
-
-
-func _on_furball_body_entered(body):
+func _on_Ketamine_body_entered(body):
 	if body.is_in_group("Enemies"):
 		body.health-=25
 		dieing = true
@@ -27,6 +25,7 @@ func _on_furball_body_entered(body):
 	else:
 		dieing = true
 		destroy()
+
 			
 func destroy():
 	queue_free()

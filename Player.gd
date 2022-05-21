@@ -33,6 +33,7 @@ func get_input():
 				weapon = body
 				weapon.position = Vector2.ZERO
 				weapon.change_state()
+			
 	
 	#drop weapon
 	if Input.is_action_just_pressed("drop") and has_weapon == true:
