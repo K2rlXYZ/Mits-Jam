@@ -58,6 +58,7 @@ func _on_Timer_timeout():
 	can_shoot = true
 	
 func give_health():
-	var player = get_tree().get_root().get_node(Globals.level + "/Player")
-	player.health += 20
-	health_given = true	
+	if health_given == false:
+		var player = get_tree().get_root().get_node(Globals.level + "/Player")
+		player.health += 20
+		health_given = true	
