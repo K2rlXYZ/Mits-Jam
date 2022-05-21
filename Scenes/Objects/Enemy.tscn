@@ -20,27 +20,27 @@ script = ExtResource( 2 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="SeekArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="seekArea" type="CollisionShape2D" parent="Area2D"]
+[node name="seekCollision" type="CollisionShape2D" parent="SeekArea"]
 scale = Vector2( 100, 100 )
 shape = SubResource( 1 )
 
 [node name="collisionArea" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="damageArea" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 2
 
-[node name="damageArea" type="CollisionShape2D" parent="Area2D2"]
+[node name="damageCollision" type="CollisionShape2D" parent="damageArea"]
 shape = SubResource( 3 )
 
 [node name="damageTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="SeekArea" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="SeekArea" to="." method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="damageTimer" to="." method="_on_damageTimer_timeout"]

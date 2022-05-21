@@ -7,6 +7,8 @@ var move_dir = Vector2.ZERO
 var speed = Vector2.ZERO
 var has_weapon = false
 var weapon = null
+var maxhealth = 200
+var health = maxhealth
 
 func _ready():
 	pass
@@ -54,6 +56,10 @@ func _physics_process(delta):
 	get_input()
 	speed = (speed + move_dir.normalized() * run_speed) * drag
 	move_and_slide(speed)
+	
+	$Health.value = int(health*100/maxhealth)
+	if health <= 0:
+		queue_free()
 	
 	
 	
