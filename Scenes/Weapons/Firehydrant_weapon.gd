@@ -6,6 +6,7 @@ export(Texture) var picked_up
 var damage = 20
 onready var pos = global_position
 var effect
+var loaded = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -21,11 +22,13 @@ func attack():
 func change_state():
 	if $Sprite.texture == idle:
 		$Sprite.texture = picked_up
-		effect = load("res://Assets/Particles/Firehydrant_effect.tscn").instance()
-		get_tree().get_root().get_node(Globals.level).add_child(effect)
-		pos.x += 48
-		effect.position = pos
-		effect.emitting =  true
+		if not loaded:
+			effect = load("res://Assets/Particles/Firehydrant_effect.tscn").instance()
+			get_tree().get_root().get_node(Globals.level).add_child(effect)
+			pos.x += 48
+			effect.position = pos
+			effect.emitting =  true
+			loaded = true
 	else:
 		$Sprite.texture = idle
 
