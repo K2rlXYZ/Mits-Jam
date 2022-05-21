@@ -13,8 +13,7 @@ func _physics_process(delta):
 	position += dir * fly_speed
 
 func shoot(towards):
-	$Sprite.visible = true
-	$CollisionShape2D.disabled = false
+	$Sprite.rotate(-2)
 	dir = (towards - position).normalized()
 	
 	
