@@ -13,7 +13,7 @@ func _ready():
 func attack():
 	for enemy in get_tree().get_nodes_in_group("Enemies"):
 		var dist = enemy.global_position.distance_to(global_position)
-		if dist < 100:
+		if dist < Globals.weapon_range:
 			enemy.health-=damage
 
 

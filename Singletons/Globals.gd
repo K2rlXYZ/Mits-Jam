@@ -5,6 +5,7 @@ extends Node
 # var a = 2
 # var b = "text"
 var level = "Level4"
+var weapon_range = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
