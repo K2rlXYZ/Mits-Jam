@@ -10,6 +10,8 @@ func _ready():
 func load_level(lvl):
 	var level = load("res://Scenes/Levels/" + lvl + ".tscn").instance()
 	
+	Globals.level = lvl
+	
 	get_node("/root").add_child(level)
 	queue_free()
 
