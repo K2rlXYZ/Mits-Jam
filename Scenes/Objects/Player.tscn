@@ -1,12 +1,46 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Assets/Player/player.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Player/player_swing-Sheet.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 6.83333
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 3 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "swing",
+"speed": 8.0
+} ]
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0.0190476, 1 )
@@ -20,6 +54,110 @@ colors = PoolColorArray( 0.384314, 0.0901961, 0.0901961, 1, 1, 0, 0, 1 )
 
 [sub_resource type="GradientTexture" id=6]
 gradient = SubResource( 5 )
+
+[sub_resource type="Animation" id=13]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "swing" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Attach:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 11.702, -5.323 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pivot/Attach:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 67.8 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "swing"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "swing", "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2, 0.25, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 2, 1, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Attach:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.15, 0.2, 0.25, 0.4, 0.45 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 11.702, -5.323 ), Vector2( 30.363, -8.125 ), Vector2( 31.527, -19.72 ), Vector2( 24.152, -37.674 ), Vector2( 31.527, -19.72 ), Vector2( 30.363, -8.125 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pivot/Attach:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.25, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 67.8, 35.7, -20.6, 35.7, 68.0 ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
@@ -39,9 +177,14 @@ shape = SubResource( 2 )
 
 [node name="Pivot" type="Node2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Pivot"]
+[node name="Sprite" type="AnimatedSprite" parent="Pivot"]
 scale = Vector2( 3, 3 )
-texture = ExtResource( 1 )
+frames = SubResource( 12 )
+animation = "swing"
+
+[node name="Attach" type="Position2D" parent="Pivot"]
+position = Vector2( 11.702, -5.323 )
+rotation = 1.18333
 
 [node name="Health" type="TextureProgress" parent="."]
 margin_left = -400.0
@@ -52,3 +195,7 @@ value = 10.0
 texture_under = SubResource( 4 )
 texture_progress = SubResource( 6 )
 nine_patch_stretch = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 13 )
+anims/swing = SubResource( 14 )

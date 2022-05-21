@@ -28,7 +28,7 @@ func get_input():
 	if Input.is_action_just_pressed("pick_up") and has_weapon == false:
 		for body in $Area2D.get_overlapping_bodies():
 			if body.is_in_group("Weapons") and has_weapon == false:
-				reparent(body, $Pivot)
+				reparent(body, $Pivot/Attach)
 				has_weapon = true
 				weapon = body
 				weapon.position = Vector2.ZERO
@@ -44,7 +44,8 @@ func get_input():
 		weapon = null
 	
 	#deal damage
-	if Input.is_action_just_pressed("attack") and has_weapon:
+	if Input.is_action_just_pressed("attack") and has_weapon and !get_node("AnimationPlayer").is_playing():
+		get_node("AnimationPlayer").play("swing")
 		weapon.attack()
 	
 	
