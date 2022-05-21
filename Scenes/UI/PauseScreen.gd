@@ -14,3 +14,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Main_Menu_pressed():
+	SceneHandler.current_level.queue_free()
+	SceneHandler.load_main_menu()
+	queue_free()
+
+
+func _on_Settings_pressed():
+	pass # Replace with function body.
+
+
+func _on_ResumeButton_pressed():
+	pass # Replace with function body.

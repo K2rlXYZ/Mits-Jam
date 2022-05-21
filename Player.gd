@@ -52,7 +52,7 @@ func get_input():
 					reparent(body, $Pivot/Attach)
 					has_weapon = true
 					weapon = body
-					if weapon.name == "Medpack_weapon":
+					if weapon.is_in_group("Heals"):
 						weapon.give_health()
 					weapon.position = Vector2.ZERO
 					weapon.change_state()
@@ -61,6 +61,9 @@ func get_input():
 	if Input.is_action_just_pressed("attack") and has_weapon and !get_node("AnimationPlayer").is_playing() and weapon.can_shoot == true:
 		get_node("AnimationPlayer").play("swing")
 		# animationis kutsub attack()
+		
+	if Input.is_action_just_pressed("pause"):
+		SceneHandler.load_pause_screen()
 		
 	
 func get_weapon():

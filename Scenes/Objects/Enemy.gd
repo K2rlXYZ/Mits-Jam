@@ -27,7 +27,7 @@ func _physics_process(delta):
 	
 	if health <= 0:
 		var blood = load("res://Scenes/Objects/Blood.tscn").instance()
-		get_tree().get_root().get_node(Globals.level).add_child(blood)
+		SceneHandler.current_level.add_child(blood)
 		blood.global_position = global_position
 		blood.rotation = global_position.angle_to_point(get_tree().get_root().get_node(Globals.level).get_node_or_null("Player").global_position)
 		queue_free()
