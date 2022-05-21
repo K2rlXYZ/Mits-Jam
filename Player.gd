@@ -25,24 +25,26 @@ func get_input():
 	#pick up a weapon
 	if Input.is_action_just_pressed("pick_up") and has_weapon == false:
 		for body in $Area2D.get_overlapping_bodies():
-			if body.is_in_group("Weapons"):
-				reparent(body, self)
+			if body.is_in_group("Weapons") and has_weapon == false:
+				reparent(body, $Pivot)
 				has_weapon = true
 				weapon = body
-				if weapon:
-					weapon.position = Vector2.ZERO
-					
+				weapon.position = Vector2.ZERO
+				weapon.change_state()
+	
+	#drop weapon
 	if Input.is_action_just_pressed("drop") and has_weapon == true:
 		reparent(weapon, self.get_parent())
 		weapon.position = position
+		weapon.change_state()
 		has_weapon = false
-		
+		weapon = null
+	
+	#deal damage
 	if Input.is_action_just_pressed("attack") and has_weapon:
-		for enemy in get_tree().get_nodes_in_group("Enemies"):
-			var dist = enemy.get_position().distance_to(get_position())
-			if dist < 100:
-				enemy.health-=get_weapon().damage
-			
+		weapon.attack()
+	
+	
 func get_weapon():
 	for child in get_children():
 		if child.is_in_group("Weapons"):
@@ -56,7 +58,7 @@ func _physics_process(delta):
 	
 	
 	# Rotate player towards mouse
-	get_node("Sprite").rotation = lerp_angle(get_node("Sprite").rotation, get_global_mouse_position().angle_to_point(position), 0.1)
+	get_node("Pivot").rotation = lerp_angle(get_node("Pivot").rotation, get_global_mouse_position().angle_to_point(position), 0.1)
 
 
 func reparent(child: Node, new_parent: Node):
