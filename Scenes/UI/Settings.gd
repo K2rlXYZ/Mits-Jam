@@ -12,9 +12,9 @@ onready var musicBus = AudioServer.get_bus_index("Music")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Settings/Master/MasterSlider.value = db2linear(AudioServer.get_bus_volume_db(masterBus))
-	$Settings/SoundFX/SoundFXSlider.value = db2linear(AudioServer.get_bus_volume_db(soundFXBus))
-	$Settings/Music/MusicSlider.value = db2linear(AudioServer.get_bus_volume_db(musicBus))
+	AudioServer.set_bus_volume_db(masterBus, linear2db($Settings/Master/MasterSlider.value))
+	AudioServer.set_bus_volume_db(soundFXBus, linear2db($Settings/SoundFX/SoundFXSlider.value))
+	AudioServer.set_bus_volume_db(musicBus, linear2db($Settings/Music/MusicSlider.value))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +22,7 @@ func _ready():
 #	pass
 func _on_MasterSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(masterBus, linear2db(value))
+	print(db2linear(AudioServer.get_bus_volume_db(masterBus)))
 	
 func _on_SoundFXSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(soundFXBus, linear2db(value))
