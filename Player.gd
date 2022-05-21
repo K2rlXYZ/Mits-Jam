@@ -62,6 +62,9 @@ func get_input():
 		get_node("AnimationPlayer").play("swing")
 		# animationis kutsub attack()
 		
+	if Input.is_action_just_pressed("pause"):
+		SceneHandler.load_pause_screen()
+		
 	
 func get_weapon():
 	for child in get_children():
