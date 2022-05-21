@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Resources/Tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Objects/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Weapons/Trashcan_weapon.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Weapons/Blackcat_weapon.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Objects/Taxi.tscn" type="PackedScene" id=11]
 
 [node name="Level2" type="Node2D"]
 
@@ -136,3 +137,6 @@ position = Vector2( 588, 1946 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2491, 2614 )
+
+[node name="Taxi" parent="." instance=ExtResource( 11 )]
+position = Vector2( -1028, -1229 )
