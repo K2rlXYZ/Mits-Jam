@@ -7,6 +7,7 @@
 radius = 17.0294
 
 [node name="furball2" type="Area2D"]
+z_index = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 1 )

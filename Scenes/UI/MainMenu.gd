@@ -28,5 +28,5 @@ func load_Level4():
 func load_Level0():
 	load_level("Level0")
 
-func load_Level6():
-	load_level("Level6")
+func load_Level5():
+	load_level("Level5")

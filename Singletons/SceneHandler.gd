@@ -2,7 +2,7 @@ extends Node
 
 
 
-var levels = ["Level1", "Level2", "Level3", "Level4", "Level0"]
+var levels = ["Level1", "Level2", "Level3", "Level4", "Level0", "Level5"]
 var current_level = null
 var current_level_name = null
 var pause_screen_loaded = false

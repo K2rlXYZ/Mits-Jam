@@ -36,7 +36,7 @@ func change_state():
 			effect = load("res://Assets/Particles/Firehydrant_effect.tscn").instance()
 			SceneHandler.current_level.add_child(effect)
 			pos.x += 48
-			effect.position = pos
+			effect.global_position = pos
 			effect.emitting =  true
 			loaded = true
 	else:

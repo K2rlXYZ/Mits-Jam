@@ -36,7 +36,7 @@ func attack():
 		var pos = global_position
 		pos.x += 80*vec.x
 		pos.y += 80*vec.y
-		furb.position = pos
+		furb.global_position = pos
 		furb.shoot(get_global_mouse_position())
 		can_shoot = false
 		$Timer.start()

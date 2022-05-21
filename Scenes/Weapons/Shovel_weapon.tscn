@@ -7,7 +7,7 @@
 
 [sub_resource type="RectangleShape2D" id=2]
 
-[node name="Shovel_weapon" type="KinematicBody2D"]
+[node name="Shovel_weapon" type="KinematicBody2D" groups=["Weapons"]]
 script = ExtResource( 2 )
 idle = ExtResource( 1 )
 picked_up = ExtResource( 1 )

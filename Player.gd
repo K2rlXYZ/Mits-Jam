@@ -94,7 +94,7 @@ func _physics_process(delta):
 	
 	
 	# Rotate player towards mouse
-	get_node("Pivot").rotation = lerp_angle(get_node("Pivot").rotation, get_global_mouse_position().angle_to_point(position), 0.1)
+	get_node("Pivot").rotation = lerp_angle(get_node("Pivot").rotation, get_global_mouse_position().angle_to_point(global_position), 0.1)
 
 
 func reparent(child: Node, new_parent: Node):

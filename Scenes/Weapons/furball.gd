@@ -14,7 +14,7 @@ func _physics_process(delta):
 
 func shoot(towards):
 	$Sprite.rotate(-2)
-	dir = (towards - position).normalized()
+	dir = (towards - global_position).normalized()
 	
 	
 
