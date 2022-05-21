@@ -44,18 +44,18 @@ animations = [ {
 "speed": 8.0
 } ]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=15]
 offsets = PoolRealArray( 0.0190476, 1 )
 
 [sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+gradient = SubResource( 15 )
 width = 800
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=16]
 colors = PoolColorArray( 0.384314, 0.0901961, 0.0901961, 1, 1, 0, 0, 1 )
 
 [sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+gradient = SubResource( 16 )
 
 [sub_resource type="Animation" id=13]
 length = 0.001

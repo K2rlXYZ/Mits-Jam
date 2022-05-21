@@ -2,7 +2,8 @@ extends KinematicBody2D
 
 var velocity = Vector2.ZERO
 var speed = 200
-var health = 100
+var maxhealth = 100
+var health = maxhealth
 var chase = false
 var can_damage = true
 export var damage = 15
@@ -30,6 +31,8 @@ func _physics_process(delta):
 		blood.global_position = global_position
 		blood.rotation = global_position.angle_to_point(get_tree().get_root().get_node(Globals.level).get_node_or_null("Player").global_position)
 		queue_free()
+	
+	$Health.value = health * 100/maxhealth
 
 
 func _on_Area2D_body_entered(body):
