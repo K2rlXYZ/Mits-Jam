@@ -5,7 +5,6 @@
 [ext_resource path="res://Assets/Weapons/garfield_kass_chillib.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.05, 10 )
 
 [node name="Cat_weapon" type="StaticBody2D" groups=["Weapons"]]
 script = ExtResource( 2 )
