@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-[node name="Medpack_weapon" type="StaticBody2D" groups=["Weapons"]]
+[node name="Medpack_weapon" type="StaticBody2D" groups=["Heals", "Weapons"]]
 script = ExtResource( 2 )
 idle = ExtResource( 1 )
 picked_up = ExtResource( 1 )
