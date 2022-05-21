@@ -75,7 +75,14 @@ func _physics_process(delta):
 	
 	$Health.value = int(health*100/maxhealth)
 	if health <= 0:
+		var pos = global_position
+		var camera = $Camera2D
+		reparent(camera, SceneHandler.current_level)
+		camera.position = pos
 		queue_free()
+		SceneHandler.load_death_screen()
+		
+		
 	
 	
 	

@@ -23,4 +23,6 @@ func level_complete():
 		load_level(levels[lvl+1])
 		
 func load_death_screen():
-	pass
+	
+func load_pause_screen():
+	load("res://Scenes/UI/PauseScreen.tscn").instance()
