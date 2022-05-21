@@ -10,6 +10,7 @@ export(Texture) var picked_up
 var vec = Vector2.ZERO
 var can_shoot
 var ammo = 10
+var health_given = false
 
 var furb_preload = preload("res://Scenes/Weapons/Ketamine.tscn")
 
@@ -25,8 +26,10 @@ var player_nearby
 var damage = 20
 
 func _physics_process(delta):
-	pass
-	
+	var parent = get_parent().get_parent()
+	if parent.name == "Player" and health_given == false:
+		parent.health += 20
+		health_given = true	
 	
 func attack():
 	if can_shoot:
