@@ -8,6 +8,7 @@ onready var pos = global_position
 var effect
 var loaded = false
 var ammo = 10
+var can_shoot = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -5,6 +5,7 @@ export(Texture) var idle
 export(Texture) var picked_up
 var damage = 20
 var ammo = 10
+var can_shoot = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
