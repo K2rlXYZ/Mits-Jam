@@ -12,7 +12,7 @@ func _ready():
 	pass 
 
 func _physics_process(delta):
-	var player = get_tree().get_root().get_node(Globals.level).get_node_or_null("Player")
+	var player = SceneHandler.current_level.get_node_or_null("Player")
 	if chase ==  true:
 		velocity = Vector2.ZERO
 		if player != null:
