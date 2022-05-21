@@ -13,7 +13,8 @@ func _ready():
 
 func _physics_process(delta):
 	var player = SceneHandler.current_level.get_node_or_null("Player")
-	$Sprite.look_at(player.global_position)
+	if player:
+		$Sprite.look_at(player.global_position)
 	if chase ==  true:
 		velocity = Vector2.ZERO
 		if player != null:
