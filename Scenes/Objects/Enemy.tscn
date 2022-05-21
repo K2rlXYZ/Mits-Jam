@@ -25,6 +25,7 @@ colors = PoolColorArray( 0.384314, 0.0901961, 0.0901961, 1, 1, 0, 0, 1 )
 gradient = SubResource( 10 )
 
 [node name="Enemy" type="KinematicBody2D" groups=["Enemies"]]
+z_index = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 2 )
