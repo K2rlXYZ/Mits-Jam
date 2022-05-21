@@ -15,6 +15,8 @@ func attack():
 		var dist = enemy.global_position.distance_to(global_position)
 		if dist < 100:
 			enemy.health-=damage
+	get_parent().get_parent().has_weapon = false
+	queue_free()
 
 
 func change_state():
