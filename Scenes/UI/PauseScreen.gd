@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 
 # Declare member variables here. Examples:
@@ -15,16 +15,23 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func _input(event):
+	if event.is_action_pressed("pause"):
+		queue_free()
+		get_tree().paused = false
+
 
 func _on_Main_Menu_pressed():
 	SceneHandler.current_level.queue_free()
 	SceneHandler.load_main_menu()
 	queue_free()
+	get_tree().paused = false
 
 
 func _on_Settings_pressed():
-	pass # Replace with function body.
+	get_tree().paused = false
 
 
 func _on_ResumeButton_pressed():
-	pass # Replace with function body.
+	queue_free()
+	get_tree().paused = false
