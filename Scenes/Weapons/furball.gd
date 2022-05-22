@@ -22,6 +22,7 @@ func shoot(towards):
 func _on_furball_body_entered(body):
 	if body.is_in_group("Enemies"):
 		body.health-=25
+		Globals.stabBlood(body)
 		dieing = true
 		destroy()
 	else:
