@@ -3,6 +3,7 @@ extends CanvasLayer
 
 func _ready():
 	SceneHandler.play_opening()
+	$Animation.play("in")
 
 
 

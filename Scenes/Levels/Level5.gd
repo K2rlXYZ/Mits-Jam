@@ -18,8 +18,7 @@ func _physics_process(_delta):
 		$TransitionOut.play("transOut")
 
 func destroy():
-	reparent($TransitionOut, get_tree().root)
-	SceneHandler.load_level("Level4")
+	SceneHandler.load_main_menu()
 	queue_free()
 	
 func reparent(child: Node, new_parent: Node):
@@ -29,3 +28,4 @@ func reparent(child: Node, new_parent: Node):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+

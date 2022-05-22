@@ -7,6 +7,8 @@
 [ext_resource path="res://Scenes/UI/PauseScreen.gd" type="Script" id=5]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
 script = ExtResource( 5 )
 
 [node name="PauseScreen" type="Control" parent="."]

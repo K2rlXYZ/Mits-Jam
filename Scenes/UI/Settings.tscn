@@ -8,6 +8,7 @@
 
 [node name="Settings" type="CanvasLayer"]
 pause_mode = 2
+layer = 2
 script = ExtResource( 5 )
 
 [node name="Settings" type="Control" parent="."]

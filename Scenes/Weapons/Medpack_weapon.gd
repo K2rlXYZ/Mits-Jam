@@ -31,6 +31,7 @@ func _physics_process(_delta):
 	
 func attack():
 	if can_shoot:
+		$Shoot.play()
 		var furb = furb_preload.instance()
 		SceneHandler.current_level.add_child(furb)
 		vec = (get_global_mouse_position()-global_position).normalized()

@@ -5,7 +5,7 @@ extends Node
 # var a = 2
 # var b = "text"
 var level
-var weapon_range = 200
+var weapon_range = 150
 var opening_played = false
 
 # Called when the node enters the scene tree for the first time.

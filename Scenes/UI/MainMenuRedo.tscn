@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Resources/Buttons/pressed.tres" type="StyleBox" id=1]
 [ext_resource path="res://Resources/Buttons/normal.tres" type="StyleBox" id=2]
@@ -20,6 +20,35 @@ width = 100
 size = 40
 extra_spacing_char = 3
 font_data = ExtResource( 6 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animation/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 7 )
@@ -108,6 +137,14 @@ Karl Müllerbeck
 "
 align = 1
 valign = 1
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/in = SubResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="Animation"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_SettingsButton_pressed"]
