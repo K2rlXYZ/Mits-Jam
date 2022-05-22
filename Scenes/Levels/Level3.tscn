@@ -231,12 +231,9 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 3.1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
 }
 
 [sub_resource type="DynamicFont" id=9]
@@ -483,8 +480,8 @@ alignment = 1
 
 [node name="Label" type="Label" parent="TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 411.0
-margin_right = 768.0
+margin_left = 446.0
+margin_right = 733.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 9 )
-text = "Go KILL that BASTARD"
+text = "Onwards traveler!"

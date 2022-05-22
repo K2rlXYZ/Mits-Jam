@@ -14,12 +14,13 @@ func _ready():
 	$AnimationPlayer.play("in")
 	
 func _physics_process(_delta):
-	if get_node_or_null("Enemies/Boss") == null and $Taxi.player_in_area and get_node_or_null("TransitionOut") != null and !$TransitionOut.is_playing():		
+	if $Taxi.player_in_area and get_node_or_null("TransitionOut") != null and !$TransitionOut.is_playing(): #and get_node_or_null("Enemies/Boss") == null:		
 		$TransitionOut.play("transOut")
 
 func destroy():
 	reparent($TransitionOut, get_tree().root)
-	SceneHandler.load_level("Level4")
+	SceneHandler.load_main_menu()
+	get_tree().root.move_child(SceneHandler.main_menu,6)
 	queue_free()	
 	
 func reparent(child: Node, new_parent: Node):
