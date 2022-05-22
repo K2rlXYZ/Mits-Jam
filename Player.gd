@@ -57,7 +57,7 @@ func get_input():
 					weapon = body
 					print("teine relv")
 					if body.animation == "swing":
-						self
+						pass
 					if weapon.is_in_group("Heals"):
 						weapon.give_health()
 						

@@ -8,17 +8,15 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	yield(get_tree().create_timer(24), "timeout")
+	yield(get_tree().create_timer(2), "timeout")
 	$AnimationPlayer.play("in")
 
 func _physics_process(_delta):
 	if get_node_or_null("Enemies/Enemy") == null and $Taxi.player_in_area and get_node_or_null("TransitionOut") != null and !$TransitionOut.is_playing():		
 		$TransitionOut.play("transOut")
-		reparent($TransitionOut, get_tree().root)
-		yield(get_tree().create_timer(1), "timeout")
-		destroy()
 
 func destroy():
+	reparent($TransitionOut, get_tree().root)
 	SceneHandler.load_level("Level2")
 	queue_free()	
 	
