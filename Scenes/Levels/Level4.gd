@@ -11,6 +11,20 @@ func _ready():
 	yield(get_tree().create_timer(2), "timeout")
 	get_tree().root.get_node("TransitionOut").queue_free()
 	$AnimationPlayer.play("in")
+	
+func _physics_process(_delta):
+	if $Taxi.player_in_area and get_node_or_null("TransitionOut") != null and !$TransitionOut.is_playing():		
+		$TransitionOut.play("transOut")
+		
+func destroy():
+	reparent($TransitionOut, get_tree().root)
+	SceneHandler.load_level("Level4")
+	queue_free()	
+	
+func reparent(child: Node, new_parent: Node):
+	var old_parent = child.get_parent()
+	old_parent.remove_child(child)
+	new_parent.add_child(child)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
