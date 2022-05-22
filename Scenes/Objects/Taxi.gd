@@ -1,8 +1,13 @@
 extends StaticBody2D
 
+var player_in_area = false
 
 
 func _on_EnterArea_body_entered(body):
 	if body.name == "Player":
-		# Level won!
-		SceneHandler.level_complete()
+		player_in_area = true
+
+
+func _on_EnterArea_body_exited(body):
+	if body.name == "Player":
+		player_in_area = false

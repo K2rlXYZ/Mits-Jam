@@ -13,7 +13,7 @@ func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
 
 
-func _physics_process(delta):
+"""func _physics_process(delta):
 	match current_level_name:
 		"Level1":
 			all_enemies_dead(current_level)
@@ -27,7 +27,7 @@ func _physics_process(delta):
 
 func all_enemies_dead(level):
 	if level.get_node("Enemies").get_children().empty():
-		level_complete()
+		level_complete()"""
 
 
 
@@ -42,7 +42,6 @@ func load_level(lvl):
 	get_tree().get_root().call_deferred("add_child", level, true)
 
 func level_complete():
-	current_level.queue_free()
 	var lvl = levels.find(current_level_name)
 	if lvl < levels.size():
 		load_level(levels[lvl+1])

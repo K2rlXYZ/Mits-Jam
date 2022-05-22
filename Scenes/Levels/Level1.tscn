@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Resources/Tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Player.tscn" type="PackedScene" id=2]
@@ -9,8 +9,194 @@
 [ext_resource path="res://Scenes/Weapons/Firehydrant_weapon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Weapons/Blackcat_weapon.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Weapons/Grass_weapon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Fonts/orange kid.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Scenes/Levels/Level1.gd" type="Script" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "e_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Press LEFT MOUSE BUTTON near enemy to kill them" ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "e_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Press LEFT MOUSE BUTTON near enemy to kill them" ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "in"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 4, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "KILL all the GOONS" ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "rs_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Move to road and press E to pick up roadsign" ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "rs_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Move to road and press E to pick up roadsign" ]
+}
+
+[sub_resource type="DynamicFont" id=7]
+size = 40
+extra_spacing_char = 3
+font_data = ExtResource( 10 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "New Anim"
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionOut/MessageScreen/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Level1" type="Node2D"]
+script = ExtResource( 11 )
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 3, 3 )
@@ -55,3 +241,91 @@ position = Vector2( 1897, -965 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 767, 997 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/e_in = SubResource( 1 )
+anims/e_out = SubResource( 2 )
+anims/in = SubResource( 3 )
+anims/out = SubResource( 4 )
+anims/rs_in = SubResource( 5 )
+anims/rs_out = SubResource( 6 )
+
+[node name="MessageScreen" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="MessageScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MessageScreen/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageScreen/Control/MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1230.0
+margin_bottom = 670.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MessageScreen/Control/MarginContainer/VBoxContainer"]
+margin_top = 285.0
+margin_right = 1180.0
+margin_bottom = 334.0
+alignment = 1
+
+[node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 441.0
+margin_right = 738.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 7 )
+text = "KILL all the GOONS"
+
+[node name="TransitionOut" type="AnimationPlayer" parent="."]
+"anims/New Anim" = SubResource( 8 )
+
+[node name="MessageScreen" type="CanvasLayer" parent="TransitionOut"]
+
+[node name="ColorRect" type="ColorRect" parent="TransitionOut/MessageScreen"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control" type="Control" parent="TransitionOut/MessageScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TransitionOut/MessageScreen/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TransitionOut/MessageScreen/Control/MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1230.0
+margin_bottom = 670.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer"]
+margin_top = 285.0
+margin_right = 1180.0
+margin_bottom = 334.0
+alignment = 1
+
+[node name="Label" type="Label" parent="TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 480.0
+margin_right = 700.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 7 )
+text = "So far so good"

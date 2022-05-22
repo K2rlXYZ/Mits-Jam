@@ -30,3 +30,4 @@ collision_mask = 2
 shape = SubResource( 2 )
 
 [connection signal="body_entered" from="EnterArea" to="." method="_on_EnterArea_body_entered"]
+[connection signal="body_exited" from="EnterArea" to="." method="_on_EnterArea_body_exited"]

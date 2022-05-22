@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Fonts/orange kid.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Trans0to1"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 24.5, 25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+extra_spacing_char = 3
+font_data = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+anims/Trans0to1 = SubResource( 1 )
+
+[node name="MessageScreen" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="MessageScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control" type="Control" parent="MessageScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MessageScreen/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageScreen/Control/MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1260.0
+margin_bottom = 670.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MessageScreen/Control/MarginContainer/VBoxContainer"]
+margin_top = 103.0
+margin_right = 1210.0
+margin_bottom = 516.0
+alignment = 1
+
+[node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1210.0
+margin_bottom = 413.0
+custom_fonts/font = SubResource( 2 )
+text = "You are a traveller and it’s your first time in New York. On the way out of
+the airport you bumped shoulders with the maffia boss’ niece and now he’s
+out for blood to regain his niece’s manhood. You have to escape the City but
+there’s no Flying back. 
+You have to fight off hordes of mafia members and reach the taxis in order 
+to get further out of the city. 
+
+Good luck!"

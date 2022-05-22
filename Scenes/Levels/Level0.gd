@@ -6,11 +6,14 @@ extends Node2D
 # var b = "text"
 var state = 0
 var keys_pressed = []
+var trans_is_playing = false
+var trans_is_child = false
+var trans = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("kt_in")
 	
-func _process(delta):
+func _physics_process(delta):
 	match state:
 		0:
 			if Input.is_action_pressed("move_left") and not "a" in keys_pressed:
@@ -24,31 +27,43 @@ func _process(delta):
 			
 			if keys_pressed.size() == 4:
 				$AnimationPlayer.play("kt_out")
-				if !$AnimationPlayer.is_playing():
-					state += 1
+				state += 1
+					
 		1:
-			if $Player.weapon != null:
-				
+			if !$AnimationPlayer.is_playing():
+					$AnimationPlayer.play("rs_in")
+					print("paha olla")
+					state += 1
 		2:
-			pass
+			if $Player.weapon != null:
+				$AnimationPlayer.play("rs_out")
+				state += 1
+		3:
+			if !$AnimationPlayer.is_playing():
+				$AnimationPlayer.play("e_in")
+				state += 1
+		4:
+			if get_node_or_null("Enemy") == null and $Taxi.player_in_area:
+				$AnimationPlayer.play("e_out")
+				state += 1
+		5:
+			if get_node_or_null("Enemy") == null and $Taxi.player_in_area and !$AnimationPlayer.is_playing():
+				if get_node_or_null("TransitionOut") != null and !$TransitionOut.is_playing():
+					$TransitionOut.play("transOut")
+					reparent($TransitionOut, get_tree().root)
+					yield(get_tree().create_timer(2), "timeout")
+					destroy()
+				
 	
 	
+func destroy():
+	SceneHandler.load_level("Level1")
+	queue_free()
 	
-		
-	if 
-	if keys_pressed.size() == 4 and not keys_played:
-		print($AnimationPlayer.current_animation)
-		$AnimationPlayer.play("out") 
-		if not $AnimationPlayer.is_playing():
-			$MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label.text = "Move to road and press E to pick up roadsign"
-			$AnimationPlayer.play("in")
-			keys_played = true
-			
-	
-	
-		
-	
-	
+func reparent(child: Node, new_parent: Node):
+	var old_parent = child.get_parent()
+	old_parent.remove_child(child)
+	new_parent.add_child(child)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
