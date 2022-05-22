@@ -549,7 +549,7 @@ position = Vector2( 948, -5524 )
 position = Vector2( 877, -6361 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1023, -5960 )
+position = Vector2( 3583, -1936 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
