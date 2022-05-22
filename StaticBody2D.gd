@@ -6,6 +6,7 @@ export(Texture) var picked_up
 var damage = 20
 var can_shoot = true
 var animation = "swing"
+var ammo = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +19,12 @@ func attack():
 		if dist < Globals.weapon_range:
 			enemy.health-=damage
 			$Hit.play()
+			ammo -= 1
+			if ammo == 0:
+				SceneHandler.current_level.get_node("Player").has_weapon = false
+				SceneHandler.current_level.get_node("Player").weapon = null
+				get_parent().remove_child(self)
+				queue_free()
 
 
 func change_state():
