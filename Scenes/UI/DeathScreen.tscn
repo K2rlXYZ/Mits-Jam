@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/UI/DeathScreen.gd" type="Script" id=5]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
 
 [node name="DeathScreen" type="Control" parent="."]
 anchor_right = 1.0
