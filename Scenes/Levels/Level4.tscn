@@ -37,7 +37,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "FIND the TAXI" ]
+"values": [ "KILL the MAFIA BOSS then FIND the TAXI" ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -353,11 +353,11 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 460.0
-margin_right = 719.0
+margin_left = 264.0
+margin_right = 916.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 7 )
-text = "Kill all the goons"
+text = "KILL the MAFIA BOSS then FIND the TAXI"
 
 [node name="TransitionOut" type="AnimationPlayer" parent="."]
 anims/transOut = SubResource( 8 )
@@ -397,8 +397,8 @@ alignment = 1
 
 [node name="Label" type="Label" parent="TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 283.0
-margin_right = 896.0
+margin_left = 437.0
+margin_right = 743.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 9 )
-text = "Let's see how you fare with these guys"
+text = "Go kill that bastard"
