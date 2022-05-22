@@ -32,7 +32,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("SolarEternity:modulate")
+tracks/1/path = NodePath("a:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("SolarEternity:modulate")
+tracks/1/path = NodePath("a:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -136,7 +136,7 @@ presents"
 align = 1
 valign = 1
 
-[node name="SolarEternity" type="Label" parent="Control"]
+[node name="a" type="Label" parent="Control"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 113.0
 margin_top = 334.0
@@ -144,7 +144,7 @@ margin_right = 992.0
 margin_bottom = 527.0
 rect_scale = Vector2( 1.2, 1.2 )
 custom_fonts/font = SubResource( 2 )
-text = "NewYorker sim"
+text = "Escape from London"
 align = 1
 valign = 1
 

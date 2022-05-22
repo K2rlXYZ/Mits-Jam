@@ -10,9 +10,10 @@ config_version=4
 
 [application]
 
-config/name="Mits Jam"
+config/name="Escape from London"
 run/main_scene="res://Scenes/UI/MainMenuRedo.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/Weapons/pigeon_gay.png"
+config/windows_native_icon="res://Assets/pigeon_gay.ico"
 
 [autoload]
 
