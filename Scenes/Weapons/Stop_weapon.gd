@@ -18,6 +18,7 @@ func attack():
 		var dist = enemy.global_position.distance_to(global_position)
 		if dist < Globals.weapon_range:
 			enemy.health-=damage
+			$Hit.play()
 			ammo -= 1
 			if ammo == 0:
 				SceneHandler.current_level.get_node("Player").has_weapon = false

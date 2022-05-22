@@ -35,6 +35,7 @@ func _physics_process(delta):
 			queue_free()
 
 func attack():
+	$Throw.play()
 	flying = true
 	fly_speed = 10
 	var pos = global_position
@@ -57,6 +58,7 @@ func change_state():
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Enemies") and flying:
 		body.health -= damage
+		$Hit.play()
 		fly_speed = 0
 		flying = false
 		
