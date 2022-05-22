@@ -19,6 +19,7 @@ var health = maxhealth
 var chase = false
 var can_damage = true
 export var damage = 45
+var can_dash = false
 
 func _ready():
 	pass 
@@ -31,6 +32,9 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		if player != null:
 			velocity = position.direction_to(player.position) * speed
+			if speed > 150 and can_dash == true:
+				$Dash.play()
+				can_dash = false
 		velocity = move_and_slide(velocity)
 		
 	if player in $Damage_area.get_overlapping_bodies() and can_damage:
@@ -82,6 +86,9 @@ func _on_Seek_area_body_exited(body):
 
 func _on_Dash_timer_timeout():
 	speed = deafult_jump_speed
-	$Dash.play()
 	yield(get_tree().create_timer(1), "timeout")
 	speed = deafult_speed
+	can_dash = true
+
+func _on_Dash_finished():
+	can_dash = false
