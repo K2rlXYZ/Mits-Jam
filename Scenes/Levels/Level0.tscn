@@ -293,10 +293,11 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 590.0
-margin_right = 590.0
+margin_left = 101.0
+margin_right = 1078.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 1 )
+text = "KILL the ENEMY using LEFT MOUSE BUTTON and FIND the TAXI"
 
 [node name="Enemy" type="KinematicBody2D" parent="." groups=["Enemies"]]
 position = Vector2( 2672, -736 )
@@ -392,7 +393,6 @@ Good luck!"
 [node name="Taxi" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2608, -976 )
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="Enemy/SeekArea" to="Enemy" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Enemy/SeekArea" to="Enemy" method="_on_Area2D_body_exited"]
 [connection signal="timeout" from="Enemy/damageTimer" to="Enemy" method="_on_damageTimer_timeout"]

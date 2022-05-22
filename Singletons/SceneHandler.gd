@@ -67,7 +67,7 @@ func load_death_screen():
 	
 func load_pause_screen():
 	if (pause_screen_loaded):
-		pause_screen.get_parent().remove_child(pause_screen)
+		pause_screen.queue_free()
 		pause_screen_loaded = false
 		get_tree().paused = false
 	else:

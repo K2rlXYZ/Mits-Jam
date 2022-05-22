@@ -9,7 +9,6 @@ func _ready():
 
 func load_level(lvl):
 	SceneHandler.load_level(lvl)
-	
 	queue_free()
 
 func load_Level0():
