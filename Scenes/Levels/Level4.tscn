@@ -353,11 +353,11 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 482.0
-margin_right = 698.0
+margin_left = 193.0
+margin_right = 986.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 7 )
-text = "FIND the TAXI"
+text = "FIND the BOSS, KILL him and LEAVE with the TAXI"
 
 [node name="TransitionOut" type="AnimationPlayer" parent="."]
 anims/transOut = SubResource( 8 )

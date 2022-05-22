@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Resources/Tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Objects/Enemy.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Levels/Level5.gd" type="Script" id=13]
 [ext_resource path="res://Assets/Fonts/orange kid.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://Scenes/Objects/Taxi.tscn" type="PackedScene" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "e_in"
@@ -94,7 +95,8 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "FIND the TAXI" ]
+"values": [ "FIND the BOSS, KILL him and LEAVE with the TAXI
+" ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -587,11 +589,11 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 264.0
-margin_right = 916.0
+margin_left = 482.0
+margin_right = 698.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 7 )
-text = "KILL the MAFIA BOSS then FIND the TAXI"
+text = "FIND the TAXI"
 
 [node name="TransitionOut" type="AnimationPlayer" parent="."]
 anims/transOut = SubResource( 8 )
@@ -636,3 +638,6 @@ margin_right = 753.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 9 )
 text = "You made it good sir!"
+
+[node name="Taxi" parent="." instance=ExtResource( 15 )]
+position = Vector2( 921, -6618 )
