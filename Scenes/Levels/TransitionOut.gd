@@ -14,6 +14,7 @@ var skipped = false
 	
 func _process(_delta):
 	if Input.is_action_pressed("skip") and not skipped:
+		skipped = true
 		self.seek(23.5)
 
 
