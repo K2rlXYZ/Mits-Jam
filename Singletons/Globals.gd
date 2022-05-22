@@ -12,9 +12,11 @@ var opening_played = false
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func stabBlood(enemy):
+	var blood = load("res://Scenes/Objects/StabBlood.tscn").instance()
+	SceneHandler.current_level.add_child(blood)
+	blood.global_position = enemy.global_position
+	blood.rotation = enemy.global_position.angle_to_point(SceneHandler.current_level.get_node_or_null("Player").global_position)
 
 func _input(event):
 	if event.is_action_pressed("toggle_fullscreen"):

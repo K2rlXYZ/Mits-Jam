@@ -58,6 +58,7 @@ func change_state():
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Enemies") and flying:
 		body.health -= damage
+		Globals.stabBlood(body)
 		$Hit.play()
 		fly_speed = 0
 		flying = false

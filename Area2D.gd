@@ -19,6 +19,7 @@ func shoot(towards):
 	
 func _on_Ketamine_body_entered(body):
 	if body.is_in_group("Enemies"):
+		Globals.stabBlood(body)
 		body.health-=25
 		dieing = true
 		destroy()

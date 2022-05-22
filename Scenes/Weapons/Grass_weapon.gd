@@ -17,6 +17,7 @@ func attack():
 		var dist = enemy.global_position.distance_to(global_position)
 		if dist < Globals.weapon_range:
 			enemy.health-=damage
+			Globals.stabBlood(enemy)
 	SceneHandler.current_level.get_node("Player").has_weapon = false
 	queue_free()
 

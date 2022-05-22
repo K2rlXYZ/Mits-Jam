@@ -22,6 +22,7 @@ func attack():
 		if dist < Globals.weapon_range:
 			enemy.health-=damage
 			$Hit.play()
+			Globals.stabBlood(enemy)
 			ammo -= 1
 			if ammo == 0:
 				SceneHandler.current_level.get_node("Player").has_weapon = false
