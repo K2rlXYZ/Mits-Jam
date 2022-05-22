@@ -33,7 +33,10 @@ func get_input():
 					reparent(body, $Pivot/Attach)
 					has_weapon = true
 					weapon = body
-					print("uus relv")
+					if weapon.animation == "shoot":
+						get_node("AnimationPlayer").play("shooting_idle")
+					elif weapon.animation == "swing":
+						get_node("AnimationPlayer").play("swing_idle")
 					if weapon.is_in_group("Heals"):
 						weapon.give_health()
 					weapon.position = Vector2.ZERO
@@ -55,7 +58,10 @@ func get_input():
 					reparent(body, $Pivot/Attach)
 					has_weapon = true
 					weapon = body
-					print("teine relv")
+					if weapon.animation == "shoot":
+						get_node("AnimationPlayer").play("shooting_idle")
+					elif weapon.animation == "swing":
+						get_node("AnimationPlayer").play("swing_idle")
 					if body.animation == "swing":
 						pass
 					if weapon.is_in_group("Heals"):
@@ -104,4 +110,4 @@ func reparent(child: Node, new_parent: Node):
 
 func attack():
 	weapon.attack()
-	get_node("Camera2D").add_trauma(0.4)
+	get_node("Camera2D").add_trauma(0.25)
