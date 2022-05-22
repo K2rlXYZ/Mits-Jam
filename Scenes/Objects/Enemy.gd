@@ -9,7 +9,7 @@ var can_damage = true
 export var damage = 15
 
 func _ready():
-	pass 
+	get_node("Sprite").frame = randi() % 3
 
 func _physics_process(_delta):
 	var player = SceneHandler.current_level.get_node_or_null("Player")
