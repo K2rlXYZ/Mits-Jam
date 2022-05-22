@@ -110,19 +110,21 @@ tracks/3/keys = {
 "times": PoolRealArray( 1.2 )
 }
 
-[node name="Opening" type="Control"]
+[node name="Opening" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Opening_sound" type="AudioStreamPlayer2D" parent="."]
+[node name="Opening_sound" type="AudioStreamPlayer2D" parent="Control"]
 stream = SubResource( 5 )
 
-[node name="Presents" type="Label" parent="."]
+[node name="Presents" type="Label" parent="Control"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 173.0
 margin_top = 184.0
@@ -134,7 +136,7 @@ presents"
 align = 1
 valign = 1
 
-[node name="SolarEternity" type="Label" parent="."]
+[node name="SolarEternity" type="Label" parent="Control"]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 113.0
 margin_top = 334.0
@@ -146,6 +148,6 @@ text = "NewYorker sim"
 align = 1
 valign = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
 anims/RESET = SubResource( 4 )
 anims/splash = SubResource( 3 )

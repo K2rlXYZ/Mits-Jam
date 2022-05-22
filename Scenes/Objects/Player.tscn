@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Assets/Player/player.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Levels/Camera2D.gd" type="Script" id=2]
@@ -11,10 +11,6 @@
 [sub_resource type="CircleShape2D" id=2]
 radius = 6.83333
 
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 1 )
-region = Rect2( 0, 0, 32, 32 )
-
 [sub_resource type="AtlasTexture" id=18]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 32, 32 )
@@ -26,6 +22,10 @@ region = Rect2( 32, 0, 32, 32 )
 [sub_resource type="AtlasTexture" id=20]
 atlas = ExtResource( 3 )
 region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 4 )
@@ -45,14 +45,14 @@ region = Rect2( 96, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 7 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
 "name": "shoot",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
@@ -86,7 +86,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ "swing" ]
+"values": [ "idle" ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Pivot/Sprite:frame")
@@ -158,10 +158,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.3, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ Vector2( -12, -18 ), Vector2( -18, -19 ), Vector2( -12, -18 ), Vector2( 12, -7 ) ]
+"values": [ Vector2( -12, -18 ), Vector2( -18, -19 ), Vector2( -12, -18 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Pivot/Attach:rotation_degrees")
@@ -188,6 +188,57 @@ tracks/4/keys = {
 "args": [  ],
 "method": "attack"
 } ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "shooting_idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "shoot" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Attach:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -12, -18 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pivot/Attach:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0.0 ]
 }
 
 [sub_resource type="Animation" id=14]
@@ -257,6 +308,57 @@ tracks/4/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=22]
+resource_name = "swing_idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pivot/Sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pivot/Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Pivot/Attach:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( 14, -6 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Pivot/Attach:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 68.0 ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 2
@@ -279,11 +381,11 @@ shape = SubResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="Pivot"]
 scale = Vector2( 3, 3 )
 frames = SubResource( 12 )
-animation = "swing"
+animation = "idle"
 
 [node name="Attach" type="Position2D" parent="Pivot"]
-position = Vector2( 11.702, -5.323 )
-rotation = 1.18333
+position = Vector2( 14, -6 )
+rotation = 1.18682
 
 [node name="Health" type="TextureProgress" parent="."]
 margin_left = -400.0
@@ -296,9 +398,12 @@ texture_progress = SubResource( 6 )
 nine_patch_stretch = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
 anims/RESET = SubResource( 13 )
 anims/shoot = SubResource( 17 )
+anims/shooting_idle = SubResource( 21 )
 anims/swing = SubResource( 14 )
+anims/swing_idle = SubResource( 22 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
