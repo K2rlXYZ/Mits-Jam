@@ -233,12 +233,9 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 3 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
 }
 
 [sub_resource type="DynamicFont" id=9]
@@ -549,7 +546,7 @@ position = Vector2( 948, -5524 )
 position = Vector2( 877, -6361 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1951, 4238 )
+position = Vector2( 1023, -5960 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false

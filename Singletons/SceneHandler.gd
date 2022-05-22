@@ -9,6 +9,7 @@ var pause_screen_loaded = false
 var pause_screen
 var last_loaded = "main_menu"
 var opening
+var main_menu
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
@@ -55,7 +56,7 @@ func load_main_menu_old():
 	
 func load_main_menu():
 	last_loaded = "main_menu"
-	var main_menu = load("res://Scenes/UI/MainMenuRedo.tscn").instance()
+	main_menu = load("res://Scenes/UI/MainMenuRedo.tscn").instance()
 	get_tree().root.add_child(main_menu)
 	
 func load_settings_screen():

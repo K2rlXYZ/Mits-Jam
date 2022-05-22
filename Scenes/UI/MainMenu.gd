@@ -5,7 +5,8 @@ func _ready():
 	for button in get_node("M/VB").get_children():
 		button.text = button.name
 		button.connect("pressed", self, "load_" + button.name)
-
+	if get_tree().root.get_node_or_null("TransitionOut") != null:
+		get_tree().root.get_node("TransitionOut").queue_free()
 
 func load_level(lvl):
 	SceneHandler.load_level(lvl)
