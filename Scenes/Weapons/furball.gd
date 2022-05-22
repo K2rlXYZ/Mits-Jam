@@ -9,7 +9,7 @@ var dieing = false
 func _ready():
 	pass
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	position += dir * fly_speed
 
 func shoot(towards):

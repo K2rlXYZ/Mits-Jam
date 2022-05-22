@@ -6,14 +6,12 @@ extends Node2D
 # var b = "text"
 var state = 0
 var keys_pressed = []
-var trans_is_playing = false
-var trans_is_child = false
-var trans = null
+var trans_is_played = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("kt_in")
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	match state:
 		0:
 			if Input.is_action_pressed("move_left") and not "a" in keys_pressed:
@@ -32,7 +30,6 @@ func _physics_process(delta):
 		1:
 			if !$AnimationPlayer.is_playing():
 					$AnimationPlayer.play("rs_in")
-					print("paha olla")
 					state += 1
 		2:
 			if $Player.weapon != null:
@@ -48,15 +45,14 @@ func _physics_process(delta):
 				state += 1
 		5:
 			if get_node_or_null("Enemy") == null and $Taxi.player_in_area and !$AnimationPlayer.is_playing():
-				if get_node_or_null("TransitionOut") != null and !$TransitionOut.is_playing():
+				if get_node_or_null("TransitionOut") != null and !$TransitionOut.is_playing() and not trans_is_played:
+					trans_is_played = true
 					$TransitionOut.play("transOut")
-					reparent($TransitionOut, get_tree().root)
-					yield(get_tree().create_timer(2), "timeout")
-					destroy()
 				
 	
 	
 func destroy():
+	reparent($TransitionOut, get_tree().root)
 	SceneHandler.load_level("Level1")
 	queue_free()
 	

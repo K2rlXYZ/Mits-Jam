@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Resources/Tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Objects/Enemy.gd" type="Script" id=6]
 [ext_resource path="res://Assets/Enemies/gangster.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Objects/Taxi.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Levels/TransitionOut.gd" type="Script" id=9]
 
 [sub_resource type="Animation" id=5]
 resource_name = "e_in"
@@ -342,6 +343,7 @@ nine_patch_stretch = true
 
 [node name="TransitionOut" type="AnimationPlayer" parent="."]
 anims/transOut = SubResource( 17 )
+script = ExtResource( 9 )
 
 [node name="MessageScreen" type="CanvasLayer" parent="TransitionOut"]
 
@@ -371,15 +373,15 @@ margin_bottom = 670.0
 alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer"]
-margin_top = 103.0
+margin_top = 51.0
 margin_right = 1210.0
-margin_bottom = 516.0
+margin_bottom = 568.0
 alignment = 1
 
 [node name="Label" type="Label" parent="TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 1210.0
-margin_bottom = 413.0
+margin_bottom = 517.0
 custom_fonts/font = SubResource( 18 )
 text = "You are a traveller and it’s your first time in New York. On the way out of
 the airport you bumped shoulders with the maffia boss’ niece and now he’s
@@ -388,7 +390,9 @@ there’s no Flying back.
 You have to fight off hordes of mafia members and reach the taxis in order 
 to get further out of the city. 
 
-Good luck!"
+Good luck!
+
+press ENTER to skip"
 
 [node name="Taxi" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2608, -976 )

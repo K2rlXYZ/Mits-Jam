@@ -77,7 +77,7 @@ func get_weapon():
 		if child.is_in_group("Weapons"):
 			return child
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	speed = (speed + move_dir.normalized() * run_speed) * drag
 	move_and_slide(speed)

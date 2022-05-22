@@ -11,7 +11,7 @@ func _ready():
 	yield(get_tree().create_timer(24), "timeout")
 	$AnimationPlayer.play("in")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if get_node_or_null("Enemies/Enemy") == null and $Taxi.player_in_area and get_node_or_null("TransitionOut") != null and !$TransitionOut.is_playing():		
 		$TransitionOut.play("transOut")
 		reparent($TransitionOut, get_tree().root)

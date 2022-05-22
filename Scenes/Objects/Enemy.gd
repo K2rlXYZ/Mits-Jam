@@ -11,7 +11,7 @@ export var damage = 15
 func _ready():
 	pass 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var player = SceneHandler.current_level.get_node_or_null("Player")
 	if player:
 		$Sprite.look_at(player.global_position)
