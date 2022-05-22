@@ -17,6 +17,7 @@ func attack():
 		var dist = enemy.global_position.distance_to(global_position)
 		if dist < Globals.weapon_range:
 			enemy.health-=damage
+			$Hit.play()
 
 
 func change_state():

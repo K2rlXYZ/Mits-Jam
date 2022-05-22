@@ -35,7 +35,6 @@ func change_state():
 		$Sprite.texture = picked_up
 		if not loaded:
 			effect = load("res://Assets/Particles/Firehydrant_effect.tscn").instance()
-			$Fountain.play()
 			SceneHandler.current_level.add_child(effect)
 			pos.x += 48
 			effect.global_position = pos
@@ -44,4 +43,7 @@ func change_state():
 	else:
 		$Sprite.texture = idle
 
-
+func reparent(child: Node, new_parent: Node):
+	var old_parent = child.get_parent()
+	old_parent.remove_child(child)
+	new_parent.add_child(child)

@@ -59,6 +59,7 @@ func _physics_process(delta):
 func attack():
 	if SceneHandler.current_level.get_node_or_null("Player") in $Damage_area.get_overlapping_bodies():
 		SceneHandler.current_level.get_node_or_null("Player").health -= damage
+		$Hit.play()
 	$Damage_timer.start()
 
 
@@ -81,5 +82,6 @@ func _on_Seek_area_body_exited(body):
 
 func _on_Dash_timer_timeout():
 	speed = deafult_jump_speed
+	$Dash.play()
 	yield(get_tree().create_timer(1), "timeout")
 	speed = deafult_speed

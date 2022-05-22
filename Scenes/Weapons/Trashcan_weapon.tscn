@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/trash_can.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Weapons/Trashcan_weapon.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Sounds/Hääl 001.wav" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 28.0713
@@ -19,3 +20,6 @@ offset = Vector2( 7.205, 3.638 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 20, 0 )
 shape = SubResource( 1 )
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
