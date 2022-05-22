@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Resources/Tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Assets/Fonts/orange kid.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Scenes/Levels/Level1.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/Objects/Taxi.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Levels/TransitionOut.gd" type="Script" id=13]
 
 [sub_resource type="Animation" id=1]
 resource_name = "e_in"
@@ -92,7 +93,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "KILL all the GOONS" ]
+"values": [ "KILL all the GOONS then FIND the TAXI" ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -222,6 +223,20 @@ tracks/3/keys = {
 "method": "destroy"
 } ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath("TransitionOut")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 11 )
@@ -308,14 +323,15 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 181.0
-margin_right = 999.0
+margin_left = 441.0
+margin_right = 738.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 7 )
-text = "Press LEFT MOUSE BUTTON near enemy to kill them"
+text = "KILL all the GOONS"
 
 [node name="TransitionOut" type="AnimationPlayer" parent="."]
 anims/transOut = SubResource( 8 )
+script = ExtResource( 13 )
 
 [node name="MessageScreen" type="CanvasLayer" parent="TransitionOut"]
 

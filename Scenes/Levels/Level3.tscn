@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Resources/Tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Player.tscn" type="PackedScene" id=2]
@@ -94,7 +94,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "Kill all the goons" ]
+"values": [ "KILL at least 22 GOONS then FIND the TAXI" ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -167,6 +167,79 @@ tracks/1/keys = {
 }
 
 [sub_resource type="DynamicFont" id=7]
+size = 40
+extra_spacing_char = 3
+font_data = ExtResource( 12 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "transOut"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("TransitionOut/MessageScreen/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "Let's see how you fare with these guys" ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "destroy"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("TransitionOut")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="DynamicFont" id=9]
 size = 40
 extra_spacing_char = 3
 font_data = ExtResource( 12 )
@@ -363,11 +436,55 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 460.0
-margin_right = 719.0
+margin_left = 250.0
+margin_right = 929.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 7 )
-text = "Kill all the goons"
+text = "KILL at least 22 GOONS then FIND the TAXI"
 
 [node name="Taxi" parent="." instance=ExtResource( 14 )]
 position = Vector2( -4212, 1907 )
+
+[node name="TransitionOut" type="AnimationPlayer" parent="."]
+anims/transOut = SubResource( 8 )
+
+[node name="MessageScreen" type="CanvasLayer" parent="TransitionOut"]
+
+[node name="ColorRect" type="ColorRect" parent="TransitionOut/MessageScreen"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Control" type="Control" parent="TransitionOut/MessageScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TransitionOut/MessageScreen/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TransitionOut/MessageScreen/Control/MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1230.0
+margin_bottom = 670.0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer"]
+margin_top = 285.0
+margin_right = 1180.0
+margin_bottom = 334.0
+alignment = 1
+
+[node name="Label" type="Label" parent="TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 283.0
+margin_right = 896.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 9 )
+text = "Let's see how you fare with these guys"

@@ -11,13 +11,13 @@ func _ready():
 	yield(get_tree().create_timer(2), "timeout")
 	$AnimationPlayer.play("in")
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	if $Taxi.player_in_area and get_node_or_null("TransitionOut") != null and !$TransitionOut.is_playing():		
 		$TransitionOut.play("transOut")	
 	
 func destroy():
 	reparent($TransitionOut, get_tree().root)
-	SceneHandler.load_level("Level2")
+	SceneHandler.load_level("Level3")
 	queue_free()	
 	
 func reparent(child: Node, new_parent: Node):
