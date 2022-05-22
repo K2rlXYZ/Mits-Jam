@@ -28,7 +28,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 3
 custom_constants/separation = 20
 
-[node name="Level1" type="Button" parent="M/VB"]
+[node name="Level0" type="Button" parent="M/VB"]
 margin_right = 298.0
 margin_bottom = 81.0
 custom_fonts/font = ExtResource( 4 )
@@ -37,7 +37,7 @@ custom_styles/pressed = ExtResource( 1 )
 custom_styles/normal = ExtResource( 2 )
 text = "Level 1"
 
-[node name="Level2" type="Button" parent="M/VB"]
+[node name="Level1" type="Button" parent="M/VB"]
 margin_top = 101.0
 margin_right = 298.0
 margin_bottom = 182.0
@@ -47,7 +47,7 @@ custom_styles/pressed = ExtResource( 1 )
 custom_styles/normal = ExtResource( 2 )
 text = "Level 1"
 
-[node name="Level3" type="Button" parent="M/VB"]
+[node name="Level2" type="Button" parent="M/VB"]
 margin_top = 202.0
 margin_right = 298.0
 margin_bottom = 283.0
@@ -57,7 +57,7 @@ custom_styles/pressed = ExtResource( 1 )
 custom_styles/normal = ExtResource( 2 )
 text = "Level 1"
 
-[node name="Level4" type="Button" parent="M/VB"]
+[node name="Level3" type="Button" parent="M/VB"]
 margin_top = 303.0
 margin_right = 298.0
 margin_bottom = 384.0
@@ -67,7 +67,7 @@ custom_styles/pressed = ExtResource( 1 )
 custom_styles/normal = ExtResource( 2 )
 text = "Level 1"
 
-[node name="Level0" type="Button" parent="M/VB"]
+[node name="Level4" type="Button" parent="M/VB"]
 margin_top = 404.0
 margin_right = 298.0
 margin_bottom = 485.0
