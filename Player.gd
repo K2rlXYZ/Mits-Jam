@@ -88,7 +88,7 @@ func _physics_process(_delta):
 	speed = (speed + move_dir.normalized() * run_speed) * drag
 	move_and_slide(speed)
 	
-	$Health.value = int(health*100/maxhealth)
+	$H/Health.value = int(health*100/maxhealth)
 	if health <= 0:
 		var pos = global_position
 		var camera = $Camera2D
