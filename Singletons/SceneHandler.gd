@@ -8,6 +8,7 @@ var current_level_name = null
 var pause_screen_loaded = false
 var pause_screen
 var last_loaded = "main_menu"
+var opening
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
@@ -80,4 +81,16 @@ func load_pause_screen():
 func restart_level():
 	current_level.queue_free()
 	load_level(current_level_name)
-	
+
+
+func play_opening():
+	if !Globals.opening_played:
+		Globals.opening_played = true
+		
+		opening = load("res://Scenes/UI/Opening.tscn").instance()
+		get_tree().get_root().call_deferred("add_child", opening)
+		opening.get_node("Control/AnimationPlayer").call_deferred("connect", "animation_finished", self, "end_opening") #.connect(, self, )
+		opening.get_node("Control/AnimationPlayer").play("splash")
+
+func end_opening(ye):
+	opening.queue_free()

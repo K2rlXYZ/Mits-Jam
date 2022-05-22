@@ -22,7 +22,7 @@ func _physics_process(_delta):
 		velocity = move_and_slide(velocity)
 		
 	if player in $damageArea.get_overlapping_bodies() and can_damage:
-		print(player.health)
+		get_node("AnimationPlayer").play("attack")
 		player.health -= damage
 		can_damage = false
 		$damageTimer.start()
