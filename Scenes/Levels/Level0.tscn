@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Resources/Tilesets/tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Objects/Player.tscn" type="PackedScene" id=2]
@@ -6,9 +6,10 @@
 [ext_resource path="res://Scenes/Levels/Level0.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Weapons/Stop_weapon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Objects/Enemy.gd" type="Script" id=6]
-[ext_resource path="res://Assets/Enemies/gangster.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Enemies/all_enemies_sheet.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/Objects/Taxi.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/UI/TransitionOut.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Resources/Sounds/oof.wav" type="AudioStream" id=10]
 
 [sub_resource type="Animation" id=5]
 resource_name = "e_in"
@@ -165,7 +166,31 @@ size = 40
 extra_spacing_char = 3
 font_data = ExtResource( 3 )
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": false,
+"name": "default",
+"speed": 0.0
+} ]
+
+[sub_resource type="CircleShape2D" id=23]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 30.0167
@@ -173,18 +198,48 @@ radius = 30.0167
 [sub_resource type="CircleShape2D" id=3]
 radius = 42.0119
 
-[sub_resource type="Gradient" id=14]
+[sub_resource type="Gradient" id=24]
 offsets = PoolRealArray( 0.0190476, 1 )
 
-[sub_resource type="GradientTexture" id=15]
-gradient = SubResource( 14 )
+[sub_resource type="GradientTexture" id=25]
+gradient = SubResource( 24 )
 width = 800
 
-[sub_resource type="Gradient" id=16]
+[sub_resource type="Gradient" id=26]
 colors = PoolColorArray( 0.384314, 0.0901961, 0.0901961, 1, 1, 0, 0, 1 )
 
 [sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 16 )
+gradient = SubResource( 26 )
+
+[sub_resource type="Animation" id=21]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 4, 3 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 4, 3 ), Vector2( 3, 3 ) ]
+}
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 4 )
@@ -253,15 +308,22 @@ margin_bottom = 49.0
 custom_fonts/font = SubResource( 1 )
 text = "KILL the ENEMY using LEFT MOUSE BUTTON and FIND the TAXI"
 
+[node name="TransitionOut" parent="." instance=ExtResource( 9 )]
+
+[node name="Taxi" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2608, -976 )
+
 [node name="Enemy" type="KinematicBody2D" parent="." groups=["Enemies"]]
-position = Vector2( 2672, -736 )
+position = Vector2( 2616, -776 )
+z_index = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 6 )
 
-[node name="Sprite" type="Sprite" parent="Enemy"]
-scale = Vector2( 3, 3 )
-texture = ExtResource( 7 )
+[node name="Sprite" type="AnimatedSprite" parent="Enemy"]
+scale = Vector2( 4, 3 )
+frames = SubResource( 16 )
+speed_scale = 0.0
 
 [node name="SeekArea" type="Area2D" parent="Enemy"]
 collision_layer = 2
@@ -269,7 +331,7 @@ collision_mask = 2
 
 [node name="seekCollision" type="CollisionShape2D" parent="Enemy/SeekArea"]
 scale = Vector2( 100, 100 )
-shape = SubResource( 13 )
+shape = SubResource( 23 )
 
 [node name="collisionArea" type="CollisionShape2D" parent="Enemy"]
 shape = SubResource( 2 )
@@ -290,14 +352,16 @@ margin_top = -70.0
 margin_right = 75.0
 margin_bottom = -60.0
 value = 10.0
-texture_under = SubResource( 15 )
+texture_under = SubResource( 25 )
 texture_progress = SubResource( 8 )
 nine_patch_stretch = true
 
-[node name="TransitionOut" parent="." instance=ExtResource( 9 )]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy"]
+anims/RESET = SubResource( 21 )
+anims/attack = SubResource( 22 )
 
-[node name="Taxi" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2608, -976 )
+[node name="Oof" type="AudioStreamPlayer" parent="Enemy"]
+stream = ExtResource( 10 )
 
 [connection signal="body_entered" from="Enemy/SeekArea" to="Enemy" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Enemy/SeekArea" to="Enemy" method="_on_Area2D_body_exited"]

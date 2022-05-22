@@ -4,6 +4,7 @@ export var fly_speed = 15
 
 var dir = Vector2.ZERO
 var dieing = false
+var damage = 18
 
 
 func _ready():
@@ -20,13 +21,12 @@ func shoot(towards):
 func _on_Ketamine_body_entered(body):
 	if body.is_in_group("Enemies"):
 		Globals.stabBlood(body)
-		body.health-=25
+		body.health-=damage
 		dieing = true
 		destroy()
 	else:
 		dieing = true
 		destroy()
-
 			
 func destroy():
 	queue_free()

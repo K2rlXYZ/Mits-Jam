@@ -22,6 +22,7 @@ scale = Vector2( 4, 4 )
 shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
 autostart = true
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]

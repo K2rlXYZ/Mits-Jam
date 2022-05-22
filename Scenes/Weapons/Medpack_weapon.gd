@@ -24,7 +24,7 @@ func _ready():
 #func _process(delta):
 #	pass
 var player_nearby
-var damage = 20
+var damage = 13
 
 func _physics_process(_delta):
 	pass
