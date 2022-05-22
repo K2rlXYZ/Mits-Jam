@@ -547,6 +547,7 @@ position = Vector2( 948, -5524 )
 position = Vector2( 877, -6361 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1951, 4238 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -586,11 +587,11 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 482.0
-margin_right = 698.0
+margin_left = 264.0
+margin_right = 916.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 7 )
-text = "FIND the TAXI"
+text = "KILL the MAFIA BOSS then FIND the TAXI"
 
 [node name="TransitionOut" type="AnimationPlayer" parent="."]
 anims/transOut = SubResource( 8 )

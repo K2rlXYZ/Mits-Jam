@@ -42,7 +42,7 @@ func attack():
 	SceneHandler.current_level.get_node("Player").weapon = null
 	reparent(self, SceneHandler.current_level)
 	position = pos
-	dir = (get_global_mouse_position() - position).normalized()
+	dir = (get_global_mouse_position() - global_position).normalized()
 	ammo -= 1
 	print(ammo)
 	

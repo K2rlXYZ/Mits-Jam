@@ -14,7 +14,7 @@ func _physics_process(_delta):
 
 func shoot(towards):
 	$Sprite.rotate(-2)
-	dir = (towards - position).normalized()
+	dir = (towards - global_position).normalized()
 	
 	
 func _on_Ketamine_body_entered(body):
