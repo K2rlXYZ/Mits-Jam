@@ -206,7 +206,8 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "Go kill that bastard" ]
+"values": [ "The gang's boss has personally come for you.
+KILL THAT BASTARD." ]
 }
 tracks/3/type = "method"
 tracks/3/path = NodePath(".")
