@@ -58,7 +58,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "splash"
-length = 7.0
+length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Presents:modulate")
 tracks/0/interp = 1
@@ -78,7 +78,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 2, 3 ),
+"times": PoolRealArray( 0, 1.5, 2.4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
@@ -90,7 +90,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 5, 7 ),
+"times": PoolRealArray( 0, 4, 5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 0 ) ]
@@ -129,12 +129,10 @@ margin_top = 184.0
 margin_right = 1115.0
 margin_bottom = 388.0
 custom_fonts/font = SubResource( 1 )
-text = "Paaristõuked presents"
+text = "Paaristõuked & Tommy
+presents"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="SolarEternity" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )

@@ -16,7 +16,7 @@ func _on_SettingsButton_pressed():
 
 
 func _on_PlayButton_pressed():
-	SceneHandler.load_level("Level1")
+	SceneHandler.load_level("Level0")
 	queue_free()
 
 
