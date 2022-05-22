@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Weapons/stopsign_weapon.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Weapons/Stop_weapon.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Weapons/sign.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Sounds/Hääl 001.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.78571, 8.83333 )
@@ -21,3 +22,6 @@ offset = Vector2( 10.054, 0 )
 position = Vector2( 31, -6 )
 scale = Vector2( 3, 3 )
 shape = SubResource( 1 )
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )

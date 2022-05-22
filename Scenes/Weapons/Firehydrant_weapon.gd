@@ -21,6 +21,7 @@ func attack():
 		var dist = enemy.global_position.distance_to(global_position)
 		if dist < Globals.weapon_range:
 			enemy.health-=damage
+			$Hit.play()
 			ammo -= 1
 			if ammo == 0:
 				SceneHandler.current_level.get_node("Player").has_weapon = false
@@ -34,6 +35,7 @@ func change_state():
 		$Sprite.texture = picked_up
 		if not loaded:
 			effect = load("res://Assets/Particles/Firehydrant_effect.tscn").instance()
+			$Fountain.play()
 			SceneHandler.current_level.add_child(effect)
 			pos.x += 48
 			effect.global_position = pos

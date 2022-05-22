@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Weapons/must_kass.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Weapons/Blackcat_weapon.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Weapons/must_kass_standing.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Sounds/mjau.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 13.125, 6.3 )
@@ -24,5 +25,8 @@ shape = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="Meow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
