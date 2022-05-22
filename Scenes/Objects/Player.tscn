@@ -43,6 +43,10 @@ region = Rect2( 64, 0, 32, 32 )
 atlas = ExtResource( 4 )
 region = Rect2( 96, 0, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ SubResource( 7 ) ],
@@ -50,29 +54,16 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
-"loop": true,
-"name": "shoot",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "swing",
 "speed": 8.0
+}, {
+"frames": [ SubResource( 7 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
 } ]
-
-[sub_resource type="Gradient" id=15]
-offsets = PoolRealArray( 0.0190476, 1 )
-
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 15 )
-width = 800
-
-[sub_resource type="Gradient" id=16]
-colors = PoolColorArray( 0.384314, 0.0901961, 0.0901961, 1, 1, 0, 0, 1 )
-
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 16 )
 
 [sub_resource type="Animation" id=13]
 length = 0.001
@@ -359,6 +350,19 @@ tracks/3/keys = {
 "values": [ 68.0 ]
 }
 
+[sub_resource type="Gradient" id=15]
+offsets = PoolRealArray( 0.0190476, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 15 )
+width = 800
+
+[sub_resource type="Gradient" id=16]
+colors = PoolColorArray( 0.384314, 0.0901961, 0.0901961, 1, 1, 0, 0, 1 )
+
+[sub_resource type="GradientTexture" id=6]
+gradient = SubResource( 16 )
+
 [node name="Player" type="KinematicBody2D"]
 z_index = 1
 collision_layer = 2
@@ -387,16 +391,6 @@ animation = "idle"
 position = Vector2( 14, -6 )
 rotation = 1.18682
 
-[node name="Health" type="TextureProgress" parent="."]
-margin_left = -400.0
-margin_top = 330.0
-margin_right = 400.0
-margin_bottom = 370.0
-value = 10.0
-texture_under = SubResource( 4 )
-texture_progress = SubResource( 6 )
-nine_patch_stretch = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 anims/RESET = SubResource( 13 )
@@ -407,4 +401,17 @@ anims/swing_idle = SubResource( 22 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+smoothing_enabled = true
 script = ExtResource( 2 )
+
+[node name="H" type="CanvasLayer" parent="."]
+
+[node name="Health" type="TextureProgress" parent="H"]
+margin_left = 216.0
+margin_top = 678.0
+margin_right = 1016.0
+margin_bottom = 718.0
+value = 10.0
+texture_under = SubResource( 4 )
+texture_progress = SubResource( 6 )
+nine_patch_stretch = true
