@@ -91,7 +91,7 @@ func _physics_process(_delta):
 	
 
 	
-	$Health.value = int(health*100/maxhealth)
+	$H/Health.value = int(health*100/maxhealth)
 	if health <= 0:
 		var pos = global_position
 		var camera = $Camera2D

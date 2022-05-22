@@ -19,9 +19,8 @@ func _physics_process(_delta):
 
 func destroy():
 	reparent($TransitionOut, get_tree().root)
-	SceneHandler.load_main_menu()
-	get_tree().root.move_child(SceneHandler.main_menu,6)
-	queue_free()	
+	SceneHandler.load_level("Level4")
+	queue_free()
 	
 func reparent(child: Node, new_parent: Node):
 	var old_parent = child.get_parent()
