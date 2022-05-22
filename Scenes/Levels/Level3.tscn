@@ -94,7 +94,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "KILL at least 22 GOONS then FIND the TAXI" ]
+"values": [ "FIND the TAXI" ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -436,11 +436,11 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 250.0
-margin_right = 929.0
+margin_left = 482.0
+margin_right = 698.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 7 )
-text = "KILL at least 22 GOONS then FIND the TAXI"
+text = "FIND the TAXI"
 
 [node name="Taxi" parent="." instance=ExtResource( 14 )]
 position = Vector2( -4212, 1907 )

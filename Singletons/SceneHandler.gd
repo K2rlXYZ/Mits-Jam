@@ -37,7 +37,8 @@ func load_level(lvl):
 	# Load new level
 	Globals.level = lvl
 	current_level_name = lvl
-	var level = load("res://Scenes/Levels/" + lvl + ".tscn").instance()
+	print("res://Scenes/Levels/" + lvl + ".tscn")
+	var level = load("res://Scenes/Levels/" + lvl + ".tscn").instance() #res://Scenes/Levels/Level5.tscn
 	current_level = level
 	
 	get_tree().get_root().call_deferred("add_child", level, true)

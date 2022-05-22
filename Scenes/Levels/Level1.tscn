@@ -230,12 +230,9 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 3 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
 }
 
 [node name="Level1" type="Node2D"]
@@ -323,11 +320,11 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 441.0
-margin_right = 738.0
+margin_left = 181.0
+margin_right = 999.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 7 )
-text = "KILL all the GOONS"
+text = "Press LEFT MOUSE BUTTON near enemy to kill them"
 
 [node name="TransitionOut" type="AnimationPlayer" parent="."]
 anims/transOut = SubResource( 8 )
