@@ -54,3 +54,9 @@ func _on_Seek_area_body_exited(body):
 	if body.name == "Player":
 		chase = false
 
+
+
+func _on_Dash_timer_timeout():
+	speed = 500
+	yield(get_tree().create_timer(1), "timeout")
+	speed = 150
