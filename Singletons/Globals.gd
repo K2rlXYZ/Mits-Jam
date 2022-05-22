@@ -12,15 +12,12 @@ var opening_played = false
 func _ready():
 	pass # Replace with function body.
 
-<<<<<<< HEAD
 func stabBlood(enemy):
 	var blood = load("res://Scenes/Objects/StabBlood.tscn").instance()
 	SceneHandler.current_level.add_child(blood)
 	blood.global_position = enemy.global_position
 	blood.rotation = enemy.global_position.angle_to_point(SceneHandler.current_level.get_node_or_null("Player").global_position)
-=======
 
->>>>>>> f88f0258d50c0ce133ce3c3975576fa0a067157c
 
 func _input(event):
 	if event.is_action_pressed("toggle_fullscreen"):
