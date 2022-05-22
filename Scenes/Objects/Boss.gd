@@ -32,7 +32,7 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		if player != null:
 			velocity = position.direction_to(player.position) * speed
-			if speed > 150 and can_dash == true:
+			if speed > 150 and can_dash == true or is_angry == true and speed > 240:
 				$Dash.play()
 				can_dash = false
 		velocity = move_and_slide(velocity)
