@@ -37,7 +37,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "KILL the MAFIA BOSS then FIND the TAXI" ]
+"values": [ "FIND the TAXI" ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -353,11 +353,11 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 264.0
-margin_right = 916.0
+margin_left = 482.0
+margin_right = 698.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 7 )
-text = "KILL the MAFIA BOSS then FIND the TAXI"
+text = "FIND the TAXI"
 
 [node name="TransitionOut" type="AnimationPlayer" parent="."]
 anims/transOut = SubResource( 8 )

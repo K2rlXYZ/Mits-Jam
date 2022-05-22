@@ -39,7 +39,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "FIND the TAXI" ]
+"values": [ "KILL the MAFIA BOSS then FIND the TAXI" ]
 }
 
 [sub_resource type="Animation" id=2]

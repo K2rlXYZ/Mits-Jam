@@ -208,7 +208,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ "Let's see how you fare with these guys" ]
+"values": [ "Onwards traveler!" ]
 }
 tracks/3/type = "method"
 tracks/3/path = NodePath(".")
@@ -483,8 +483,8 @@ alignment = 1
 
 [node name="Label" type="Label" parent="TransitionOut/MessageScreen/Control/MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 283.0
-margin_right = 896.0
+margin_left = 411.0
+margin_right = 768.0
 margin_bottom = 49.0
 custom_fonts/font = SubResource( 9 )
-text = "Let's see how you fare with these guys"
+text = "Go KILL that BASTARD"
